@@ -1,0 +1,135 @@
+body {
+    font-size: 1.2rem;
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) { 
+    body {
+        font-size: 1rem;
+    }
+}
+
+a, .navbar-light .navbar-nav .nav-link {
+    color: black;
+}
+
+a:hover, .navbar-light .navbar-nav .nav-link:hover {
+    color: darkgray;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-variant-caps: titling-caps;
+    font-family: 'Teko', sans-serif;
+}
+
+header {
+    height: 100vh;
+    background-image: url("../../uploads/2018/10/beerOnTrack1.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+nav.mainNavigation {
+    position: fixed;
+    background-color: white;
+    width:100%;
+    top:0;
+    left:0;
+    font-size: 1.5rem;
+    font-variant-caps: titling-caps;
+    font-family: 'Teko', sans-serif;
+    vertical-align: middle;
+    z-index: 999;
+    border-bottom: 1px solid lightgray;
+}
+
+nav.mainNavigation img:hover {
+    width: 105%;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+.mainLogo {
+    position: relative;
+    left: 1em;
+    top: 40%;
+    width: 55%;
+    border-radius: 3px;
+}
+
+.mainLogo:hover {
+    opacity: .95;
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) { 
+    .mainLogo {
+        position: relative;
+        left: 5%;
+        top: 30%;
+        width: 90%;
+        border-radius: 3px;
+    }
+}
+
+section {
+    background-color:white;
+    margin: 80px 0 50px 0;
+}
+
+ul.noDecoration {
+    list-style: none;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.largerFont {
+    font-size: 200%;
+}
+
+div.beerAndBeerBottle, div.bbqSandwiches, div.lotsOfHops {
+    height: 100vh;
+    background-image: url("../../uploads/2018/09/RWBDbeer-e1538442435794-1024x576.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+div.beerAndBeerBottle {
+    background-image: url("../../uploads/2018/09/RWBDbeer-e1538442435794-1024x576.jpg");
+}
+
+div.bbqSandwiches {
+    background-image: url("../../uploads/2018/09/RWBSbbq-1024x576.jpg");
+}
+
+div.lotsOfHops {
+    background-image: url("../../uploads/2018/09/RWBDhops-1024x576.jpg");
+}
+
+/* Medium devices (tablets, 768px and down) */
+@media (max-width: 768px) { 
+    div.beerAndBeerBottle, div.bbqSandwiches, div.lotsOfHops {
+        height: 50vh;
+    }
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    left:0;
+    background-color: white;
+    width:100%;
+    font-size: 1rem;
+    vertical-align: middle;
+    margin: 0;
+    padding: 15px 0;
+}
+
+
