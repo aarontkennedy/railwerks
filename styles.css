@@ -100,6 +100,16 @@ ul.noDecoration {
 .largerFont {
     font-size: 200%;
 }
+@media (max-width: 480px) { 
+    .largerFont a.nav-link {
+        padding: 8px;
+    }
+}
+
+.businessTitle {
+    font-weight: 400;
+    font-size: 1.5rem;
+}
 
 .individualEmailButton {
     display:inline-block;
