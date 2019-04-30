@@ -53,12 +53,11 @@ nav a:hover {
 }
 
 .mainLogo {
-    position: relative;
-    left: 5%;
-    top: 40%;
-    width: 55%;
-    max-width: 574px;
-    border-radius: 3px;
+    position: absolute;
+    right: 55%;
+    top: 20%;
+    height: 60%;
+    border-radius: 5px;
 }
 
 .mainLogo:hover {
@@ -69,9 +68,11 @@ nav a:hover {
 @media (max-width: 768px) { 
     .mainLogo {
         position: relative;
-        left: 5%;
-        top: 30%;
-        width: 90%;
+        left: -webkit-calc(50vw - 35vh/1.4);
+        left: -moz-calc(50vw - 35vh/1.4);
+        left: calc(50vw - 35vh/1.4);
+        top: 15%;
+        height: 70%;
         border-radius: 3px;
     }
 }
