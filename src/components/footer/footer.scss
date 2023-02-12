@@ -1,0 +1,14 @@
+@import "../../styles/variables";
+
+.footer {
+  width: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: top;
+  padding: 10px;
+
+  &__column {
+    width: 50%;
+  }
+}
