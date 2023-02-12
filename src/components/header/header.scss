@@ -1,0 +1,46 @@
+@import "../../styles/variables";
+
+.header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: $menu-height;
+  padding: 0px 10px;
+
+  &__brand-icon {
+    width: 55px;
+    color: pink;
+    &:hover {
+      width: 56px;
+    }
+  }
+
+  &__navigation-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__navigation-link,
+  &__navigation-link a {
+    list-style-type: none;
+    margin: 0;
+    padding: 10px;
+    text-decoration: none;
+    font-variant-caps: titling-caps;
+    font-family: "Teko", sans-serif;
+    font-size: 30px;
+    color: $color;
+
+    &:hover {
+      color: $hoverColor;
+    }
+  }
+}

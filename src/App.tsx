@@ -1,13 +1,11 @@
 import React from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import "./App.scss";
-import Header from "./components/header";
-import Footer from "./components/footer";
-import FrontPage from "./pages/FrontPage";
-import About from "./pages/About";
-import Menu from "./pages/Menu";
-import Events from "./pages/Events";
-import Contact from "./pages/Contact";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
+import FrontPage from "./pages/frontPage/FrontPage";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 
 function App() {
   return (
@@ -16,8 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="about" element={<About />} />
-        <Route path="menu" element={<Menu />} />
-        <Route path="events" element={<Events />} />
         <Route path="contact" element={<Contact />} />
       </Routes>
 

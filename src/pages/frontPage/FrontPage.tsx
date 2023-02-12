@@ -5,7 +5,7 @@ function FrontPage() {
         <h2>Home</h2>
       </div>
       <div>
-        <p>Welcome to Rail Werks Brewing Depot. We’re glad you stopped by.</p>
+        <p>Welcome to Rail Werks Brewing Depot. We're glad you stopped by.</p>
 
         <p>
           Coming soon RAIL PASS, your opportunity to support Rail Werks Brewing

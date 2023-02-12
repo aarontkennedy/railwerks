@@ -1,0 +1,16 @@
+@import "../../styles/variables";
+
+.social-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    width: 40px;
+    padding: 10px;
+    color: pink;
+    &:hover {
+      width: 41px;
+    }
+  }
+}
