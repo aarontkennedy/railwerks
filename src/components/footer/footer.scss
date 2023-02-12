@@ -11,4 +11,10 @@
   &__column {
     width: 50%;
   }
+
+  &--center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }

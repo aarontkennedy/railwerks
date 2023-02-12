@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
 import SocialNavigation from "../socialNavigation/socialNavigation";
-import Navigation from "./navigation";
+import Navigation from "../navigation/navigation";
 import { ReactComponent as RwbdIcon } from "../../icons/crossingTracksLogo.svg";
 
 function Header(): JSX.Element {
@@ -14,7 +14,7 @@ function Header(): JSX.Element {
         </Link>
       </div>
 
-      <Navigation />
+      <Navigation horizontal={true} />
       <SocialNavigation />
     </header>
   );

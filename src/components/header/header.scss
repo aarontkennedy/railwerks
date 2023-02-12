@@ -13,6 +13,7 @@
   align-items: center;
   height: $menu-height;
   padding: 0px 10px;
+  z-index: 100;
 
   &__brand-icon {
     width: 55px;
