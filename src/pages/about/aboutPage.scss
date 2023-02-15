@@ -1,0 +1,29 @@
+.about-page {
+  &__content {
+    padding: 30px 75px 0 75px;
+    font-size: 1.2rem;
+
+    &--center {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+  }
+
+  // &__quote {
+  //   margin: 0 auto;
+  //   font-family: "Teko", sans-serif;
+  //   font-size: 35px;
+  //   max-width: 400px;
+  //   text-align: center;
+  // }
+
+  // &__video {
+  //   max-width: 600px;
+  //   margin: 0 auto 2rem auto;
+  // }
+
+  // &__railpass-cta {
+  //   max-width: 300px;
+  // }
+}

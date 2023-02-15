@@ -15,20 +15,20 @@ function Footer() {
             info@railwerksbrewingdepot.com
           </a>
         </div>
-        <div>
-          <h4 className="footer__title">Hours</h4>
-          <div className="footer__value">TBD</div>
+        <div className="footer__value">
+          <div>4055 40th ST NE</div>
+          <div>Columbia Heights, MN 55421</div>
         </div>
         <div>
-          <h4 className="footer__title">Location</h4>
-          <div className="footer__value">Columbia Heights, MN</div>
+          <h4 className="footer__title">Hours</h4>
+          <div className="footer__value">Coming Soon!</div>
         </div>
       </div>
 
       <div className="footer__column">
         <Navigation horizontal={false} />
 
-        <div className="footer--center">
+        <div className="footer--center footer__value">
           <SocialNavigation />
         </div>
       </div>
