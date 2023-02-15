@@ -5,15 +5,17 @@ import "./decorativePhotoBeerWithLogo.scss";
 function DecorativePhotoBeerWithLogo(): JSX.Element {
   return (
     <div className="decorative-photo-logo">
-      <DecorativePhoto
+      {/* <DecorativePhoto
         photoUrl="images/beerOnTrack1.jpg"
         altText="Beer on tracks"
-      />
-      <img
-        className="decorative-photo-logo__logo"
-        alt="RWBD"
-        src="images/newLogoWithBorder.png"
-      />
+      /> */}
+      <a href="#front-page-content">
+        <img
+          className="decorative-photo-logo__logo"
+          alt="RWBD"
+          src="images/newLogoWithBorder.png"
+        />
+      </a>
     </div>
   );
 }

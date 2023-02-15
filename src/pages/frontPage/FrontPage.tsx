@@ -6,6 +6,7 @@ function FrontPage(): JSX.Element {
   return (
     <div className="front-page">
       <DecorativePhotoBeerWithLogo />
+      <div id="front-page-content"></div>
       <div className="front-page__content">
         <h2 className="front-page__quote">
           Where the beer is cold, the BBQ is smokin', and family is everything.
