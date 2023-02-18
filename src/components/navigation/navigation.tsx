@@ -14,8 +14,11 @@ function Navigation({ horizontal }: NavigationProps): JSX.Element {
       <div className="navigation-link">
         <Link to="about">About Us</Link>
       </div>
-      <div className="navigation-link">
+      {/* <div className="navigation-link">
         <a href="https://rail-werks-brewing-depot.square.site">Rail Pass</a>
+      </div> */}
+      <div className="navigation-link">
+        <Link to="food">Menu</Link>
       </div>
       <div className="navigation-link">
         <Link to="contact">Contact</Link>

@@ -39,9 +39,10 @@ function FrontPage(): JSX.Element {
         <div className="front-page__video">
           <div>
             <iframe
+              className="youtube-video"
               title="Youtube RWBD video"
-              width="560"
-              height="315"
+              // width="560"
+              // height="315"
               src="https://www.youtube.com/embed/25bTT2OZxuE"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

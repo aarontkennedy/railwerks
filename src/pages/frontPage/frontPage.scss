@@ -14,6 +14,10 @@
     }
   }
 
+  a {
+    color: black;
+  }
+
   &__quote {
     margin: 0 auto;
     font-family: "Teko", sans-serif;
@@ -30,4 +34,9 @@
   &__railpass-cta {
     max-width: 300px;
   }
+}
+
+.youtube-video {
+  aspect-ratio: 16 / 9;
+  width: 100%;
 }

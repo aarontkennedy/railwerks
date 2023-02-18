@@ -1,11 +1,11 @@
-import DecorativePhotoBeerAndBarrel from "../../components/decorativePhoto/decorativePhotoBeerAndBarrel";
+import PhotoBannerBeerAndBarrel from "../../components/photoBanner/photoBannerBeerAndBarrel";
 import DecorativePhotoHops from "../../components/decorativePhoto/decorativePhotoHops";
 import "./aboutPage.scss";
 
 function About(): JSX.Element {
   return (
     <div className="about-page">
-      <DecorativePhotoBeerAndBarrel />
+      <PhotoBannerBeerAndBarrel />
       <div className="about-page__content">
         <p>
           Rail Werks Brewing Depot is a family-run business, literally. Husband
