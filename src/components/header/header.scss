@@ -8,40 +8,70 @@
   background-color: white;
   border-bottom: 1px solid lightgray;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
   height: $menu-height;
-  padding: 0px 10px;
+  padding: calc(($menu-height - $branding-icon-height) / 2) 10px 0px 10px;
   z-index: 100;
 
+  &__navigation-wrap {
+    padding-bottom: 15px;
+    background-color: white;
+  }
+
+  &__mobile-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
   &__brand-icon {
-    width: 55px;
-    color: pink;
+    width: $branding-icon-height;
     &:hover {
-      width: 56px;
+      width: calc($branding-icon-height + 1px);
     }
   }
 
-  &__navigation-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &__navigation-toggle {
+    z-index: 1000;
+    cursor: pointer;
+
+    &-icon {
+      width: 50px;
+      padding: 10px;
+      &:hover {
+        width: 52px;
+      }
+    }
   }
 
-  &__navigation-link,
-  &__navigation-link a {
-    list-style-type: none;
-    margin: 0;
-    padding: 10px;
-    text-decoration: none;
-    font-variant-caps: titling-caps;
-    font-family: "Teko", sans-serif;
-    font-size: 30px;
-    color: $color;
+  &--toggled {
+    height: unset;
+  }
+}
 
-    &:hover {
-      color: $hoverColor;
+@media (min-width: 1024px) {
+  .header {
+    max-height: unset;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 10px;
+
+    &__navigation-wrap {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__navigation-toggled,
+    &__navigation-wrap,
+    &--toggle,
+    &__mobile-wrapper {
+      display: none;
     }
   }
 }

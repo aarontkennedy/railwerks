@@ -2,8 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./navigation.scss";
 
-class NavigationProps {
-  horizontal: boolean = true;
+interface NavigationProps {
+  horizontal: boolean;
 }
 
 function Navigation({ horizontal }: NavigationProps): JSX.Element {
