@@ -1,9 +1,18 @@
+@import "../../styles/variables";
+
 .contact-page {
   &__content {
-    padding: 30px 75px 0 75px;
+    padding: 50px 75px 0 75px;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    max-width: $maxWidth;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__column {
   }
 
   &--center {
