@@ -4,7 +4,7 @@
 
 .front-page {
   &__content {
-    padding: 130px 75px 0 75px;
+    padding: 130px 50px 0 50px;
     font-size: 1.2rem;
 
     &--center {
@@ -39,4 +39,12 @@
 .youtube-video {
   aspect-ratio: 16 / 9;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .front-page {
+    &__content {
+      padding: 130px 75px 0 75px;
+    }
+  }
 }

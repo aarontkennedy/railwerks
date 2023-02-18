@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: top;
-  padding: 40px;
+  padding: 50px;
 
   &--center {
     text-align: center;
@@ -31,11 +31,16 @@
       color: black;
     }
   }
+
+  &__map-link {
+    text-decoration: none;
+  }
 }
 
 @media (min-width: 768px) {
   .footer {
     flex-direction: row;
+    padding: 75px;
 
     &__column {
       width: 50%;

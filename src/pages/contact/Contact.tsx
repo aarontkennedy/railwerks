@@ -1,6 +1,7 @@
 import PhotoBannerHops from "../../components/photoBanner/photoBannerHops";
 import DecorativePhotoTrainCars from "../../components/decorativePhoto/decorativePhotoTrainCars";
 import "./contactPage.scss";
+import Map, { googleMapUrl } from "../../components/map/Map";
 
 function Contact() {
   return (
@@ -15,11 +16,21 @@ function Contact() {
             </a>
           </div>
           <div className="contact-page__detail">
-            <div>4055 40th ST NE</div>
-            <div>Columbia Heights, MN 55421</div>
+            <div>
+              <a className="contact-page__map-link" href={googleMapUrl}>
+                4055 40th ST NE
+              </a>
+            </div>
+            <div>
+              <a className="contact-page__map-link" href={googleMapUrl}>
+                Columbia Heights, MN 55421
+              </a>
+            </div>
           </div>
         </div>
-        {/* <div className="contact-page__column"></div> */}
+        <div className="contact-page__column">
+          <Map small={false} />
+        </div>
       </div>
       <DecorativePhotoTrainCars />
     </div>

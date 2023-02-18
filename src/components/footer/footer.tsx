@@ -2,6 +2,7 @@ import React from "react";
 import Navigation from "../navigation/navigation";
 import SocialNavigation from "../socialNavigation/socialNavigation";
 import "./footer.scss";
+import Map, { googleMapUrl } from "../../components/map/Map";
 
 function Footer() {
   return (
@@ -16,8 +17,19 @@ function Footer() {
           </a>
         </div>
         <div className="footer__value">
-          <div>4055 40th ST NE</div>
-          <div>Columbia Heights, MN 55421</div>
+          <div>
+            <a className="footer__map-link" href={googleMapUrl}>
+              4055 40th ST NE
+            </a>
+          </div>
+          <div>
+            <a className="footer__map-link" href={googleMapUrl}>
+              Columbia Heights, MN 55421
+            </a>
+          </div>
+          <div>
+            <Map small={true} />
+          </div>
         </div>
         <div>
           <h4 className="footer__title">Hours</h4>
@@ -26,7 +38,12 @@ function Footer() {
       </div>
 
       <div className="footer__column">
-        <Navigation horizontal={false} handleClick={()=> {window.scrollTo(0, 0);}}/>
+        <Navigation
+          horizontal={false}
+          handleClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        />
 
         <div className="footer--center footer__value">
           <SocialNavigation />

@@ -21,6 +21,9 @@
     color: black;
     margin-bottom: 10px;
   }
+  &__map-link {
+    text-decoration: none;
+  }
 }
 
 @media (min-width: 1024px) {
