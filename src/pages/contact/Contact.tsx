@@ -19,7 +19,7 @@ function Contact() {
             <div>Columbia Heights, MN 55421</div>
           </div>
         </div>
-        <div className="contact-page__column"></div>
+        {/* <div className="contact-page__column"></div> */}
       </div>
       <DecorativePhotoTrainCars />
     </div>

@@ -4,24 +4,31 @@ import "./navigation.scss";
 
 interface NavigationProps {
   horizontal: boolean;
+  handleClick: () => void;
 }
 
-function Navigation({ horizontal }: NavigationProps): JSX.Element {
+function Navigation({ horizontal, handleClick }: NavigationProps): JSX.Element {
   return (
     <div
       className={horizontal ? "navigation-links" : "navigation-links--vertical"}
     >
       <div className="navigation-link">
-        <Link to="about">About Us</Link>
+        <Link to="about" onClick={handleClick}>
+          About Us
+        </Link>
       </div>
       {/* <div className="navigation-link">
         <a href="https://rail-werks-brewing-depot.square.site">Rail Pass</a>
       </div> */}
       <div className="navigation-link">
-        <Link to="food">Menu</Link>
+        <Link to="food" onClick={handleClick}>
+          Menu
+        </Link>
       </div>
       <div className="navigation-link">
-        <Link to="contact">Contact</Link>
+        <Link to="contact" onClick={handleClick}>
+          Contact
+        </Link>
       </div>
     </div>
   );

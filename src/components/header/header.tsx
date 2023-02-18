@@ -34,7 +34,12 @@ function Header(): JSX.Element {
     return (
       <header className="header">
         {getBranding()}
-        <Navigation horizontal={true} />
+        <Navigation
+          horizontal={true}
+          handleClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        />
         <SocialNavigation />
       </header>
     );
@@ -55,7 +60,13 @@ function Header(): JSX.Element {
       </div>
       {toggle && (
         <div className="header__navigation-wrap">
-          <Navigation horizontal={!toggle} />
+          <Navigation
+            horizontal={!toggle}
+            handleClick={() => {
+              setToggle(false);
+              window.scrollTo(0, 0);
+            }}
+          />
           <SocialNavigation />
         </div>
       )}

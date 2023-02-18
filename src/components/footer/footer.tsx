@@ -26,7 +26,7 @@ function Footer() {
       </div>
 
       <div className="footer__column">
-        <Navigation horizontal={false} />
+        <Navigation horizontal={false} handleClick={()=> {window.scrollTo(0, 0);}}/>
 
         <div className="footer--center footer__value">
           <SocialNavigation />
