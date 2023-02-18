@@ -1,0 +1,32 @@
+.contact-page {
+  &__content {
+    padding: 30px 75px 0 75px;
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  &__brand {
+    font-family: "Teko", sans-serif;
+    font-size: 30px;
+  }
+  &__detail,
+  &__detail a {
+    color: black;
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .contact-page {
+    &__content {
+      flex-direction: row;
+    }
+  }
+}
