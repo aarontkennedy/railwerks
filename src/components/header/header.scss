@@ -52,7 +52,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $desktopBreakpoint) {
   .header {
     max-height: unset;
     display: flex;

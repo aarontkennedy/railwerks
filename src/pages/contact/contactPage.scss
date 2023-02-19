@@ -35,7 +35,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $desktopBreakpoint) {
   .contact-page {
     &__content {
       flex-direction: row;

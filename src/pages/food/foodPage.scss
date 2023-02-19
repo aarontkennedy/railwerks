@@ -1,6 +1,8 @@
+@import "../../styles/variables";
+
 .food-page {
   &__content {
-    padding: 30px 75px 0 75px;
+    padding: 30px 0 0 0;
     margin-left: auto;
     margin-right: auto;
     max-width: 700px;
@@ -14,6 +16,7 @@
   }
 
   &__section {
+    padding: 30px $mobileMargin 0 $mobileMargin;
   }
 
   &__header {
@@ -41,10 +44,21 @@
   z-index: -1;
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-size: contain;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: $tabletBreakpoint) {
   .food-page {
+    &__section {
+      padding: 30px $tabletMargin 0 $tabletMargin;
+    }
+  }
+}
+
+@media (min-width: $desktopBreakpoint) {
+  .food-page {
+    &__section {
+      padding: 30px $desktopMargin 0 $desktopMargin;
+    }
   }
 }

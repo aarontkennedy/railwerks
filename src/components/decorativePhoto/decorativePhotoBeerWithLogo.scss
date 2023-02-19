@@ -18,7 +18,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tabletBreakpoint) {
   .decorative-photo-logo {
     width: 100%;
 

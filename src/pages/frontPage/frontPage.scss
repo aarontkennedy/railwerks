@@ -47,7 +47,7 @@
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tabletBreakpoint) {
   .front-page {
     &__content {
       padding: 130px $desktopMargin 0 $desktopMargin;

@@ -16,7 +16,7 @@
   }
 }
 
-@media (min-width: 768px) {
+@media (min-width: $tabletBreakpoint) {
   .about-page {
     &__content {
       padding: 30px $desktopMargin 0 $desktopMargin;
