@@ -11,8 +11,8 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: $menu-height;
-  padding: calc(($menu-height - $branding-icon-height) / 2) 10px 0px 10px;
+  height: $menuHeight;
+  padding: calc(($menuHeight - $brandingIconHeight) / 2) 10px 0px 10px;
   z-index: 100;
 
   &__navigation-wrap {
@@ -28,9 +28,9 @@
   }
 
   &__brand-icon {
-    width: $branding-icon-height;
+    width: $brandingIconHeight;
     &:hover {
-      width: calc($branding-icon-height + 1px);
+      width: calc($brandingIconHeight + 1px);
     }
   }
 

@@ -6,7 +6,7 @@
 
 .front-page {
   &__content {
-    padding: 130px 50px 0 50px;
+    padding: 130px $mobileMargin 0 $mobileMargin;
     font-size: 1.2rem;
     max-width: $maxWidth;
     margin-left: auto;
@@ -37,7 +37,8 @@
   }
 
   &__railpass-cta {
-    max-width: 300px;
+    width: 300px;
+    max-width: 100%;
   }
 }
 
@@ -49,7 +50,7 @@
 @media (min-width: 768px) {
   .front-page {
     &__content {
-      padding: 130px 75px 0 75px;
+      padding: 130px $desktopMargin 0 $desktopMargin;
     }
   }
 }

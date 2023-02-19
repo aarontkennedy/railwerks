@@ -9,7 +9,7 @@
   display: flex;
   flex-direction: column;
   align-items: top;
-  padding: 50px;
+  padding: 50px $mobileMargin;
 
   &--center {
     text-align: center;
@@ -43,7 +43,7 @@
 @media (min-width: 768px) {
   .footer {
     flex-direction: row;
-    padding: 75px;
+    padding: 75px $desktopMargin;
 
     &__column {
       width: 50%;

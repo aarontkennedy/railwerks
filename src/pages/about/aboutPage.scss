@@ -2,7 +2,7 @@
 
 .about-page {
   &__content {
-    padding: 30px 50px 0 50px;
+    padding: 30px $mobileMargin 0 $mobileMargin;
     font-size: 1.2rem;
     max-width: $maxWidth;
     margin-left: auto;
@@ -19,7 +19,7 @@
 @media (min-width: 768px) {
   .about-page {
     &__content {
-      padding: 30px 75px 0 75px;
+      padding: 30px $desktopMargin 0 $desktopMargin;
     }
   }
 }
