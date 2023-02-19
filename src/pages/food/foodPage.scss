@@ -36,14 +36,14 @@
   content: "";
   background: url("https://railwerksbrewingdepot.com/images/rwbdNewLogo.jpg");
   opacity: 0.05;
-  top: 10%;
-  left: 25%;
-  right: 25%;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 100%;
   position: absolute;
   z-index: -1;
   background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
+  background-repeat: repeat-y; /* Do not repeat the image */
   background-size: contain;
 }
 
@@ -59,6 +59,11 @@
   .food-page {
     &__section {
       padding: 30px $desktopMargin 0 $desktopMargin;
+    }
+
+    .watermark::after {
+      content: "";
+      background-repeat: no-repeat; /* Do not repeat the image */
     }
   }
 }
