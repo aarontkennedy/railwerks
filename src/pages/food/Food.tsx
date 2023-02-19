@@ -6,7 +6,7 @@ function Food() {
   return (
     <div className="food-page">
       <PhotoBannerBbq />
-      <div className="food-page__content">
+      <div className="food-page__content watermark">
         <div className="food-page__section">
           <h1 className="food-page__header food-page--center">Shareables</h1>
           <div className="food-page__item">Slow smoked whole chicken wings</div>

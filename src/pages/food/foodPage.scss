@@ -24,6 +24,26 @@
   }
 }
 
+.watermark {
+  display: block;
+  position: relative;
+}
+
+.watermark::after {
+  content: "";
+  background: url("https://railwerksbrewingdepot.com/images/rwbdNewLogo.jpg");
+  opacity: 0.05;
+  top: 10%;
+  left: 25%;
+  right: 25%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
 @media (min-width: 1024px) {
   .food-page {
   }
