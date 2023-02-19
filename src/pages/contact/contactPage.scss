@@ -2,7 +2,7 @@
 
 .contact-page {
   &__content {
-    padding: 50px 75px 0 75px;
+    padding: 50px $mobileMargin 0 $mobileMargin;
     font-size: 1.2rem;
     display: flex;
     flex-direction: column;
@@ -38,6 +38,7 @@
 @media (min-width: $desktopBreakpoint) {
   .contact-page {
     &__content {
+      padding: 50px $desktopMargin 0 $desktopMargin;
       flex-direction: row;
     }
   }

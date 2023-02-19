@@ -2,8 +2,13 @@ import PhotoBannerHops from "../../components/photoBanner/photoBannerHops";
 import DecorativePhotoTrainCars from "../../components/decorativePhoto/decorativePhotoTrainCars";
 import "./contactPage.scss";
 import Map, { googleMapUrl } from "../../components/map/Map";
+import useWindowDimensions from "../../helpers/useWindowDimensions";
 
-function Contact() {
+function Contact(): JSX.Element {
+  const { height, width } = useWindowDimensions();
+  const isTabletOrLarger = () => {
+    return (width ?? 0) >= 768; // assume mobile?
+  };
   return (
     <div className="contact-page">
       <PhotoBannerHops />
@@ -29,7 +34,7 @@ function Contact() {
           </div>
         </div>
         <div className="contact-page__column">
-          <Map small={false} />
+          <Map small={!isTabletOrLarger()} />
         </div>
       </div>
       <DecorativePhotoTrainCars />
