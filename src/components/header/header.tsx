@@ -23,7 +23,12 @@ function Header(): JSX.Element {
   const getBranding = (): JSX.Element => {
     return (
       <div className="header__brand">
-        <Link to="/">
+        <Link
+          to="/"
+          onClick={() => {
+            window.scrollTo(0, 0);
+          }}
+        >
           <RwbdIcon className="header__brand-icon" />
         </Link>
       </div>
