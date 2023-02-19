@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.scss";
 import Header from "./components/header/header";
 import Footer from "./components/footer/footer";
@@ -17,6 +17,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="food" element={<Food />} />
         <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
 
       <Footer />
