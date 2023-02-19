@@ -41,8 +41,6 @@ function FrontPage(): JSX.Element {
             <iframe
               className="youtube-video"
               title="Youtube RWBD video"
-              // width="560"
-              // height="315"
               src="https://www.youtube.com/embed/25bTT2OZxuE"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -59,13 +57,13 @@ function FrontPage(): JSX.Element {
 
           <h2>“One-time fee, lifetime benefits”</h2>
 
-          <a href="https://rail-werks-brewing-depot.square.site">
-            <img
-              className="front-page__railpass-cta"
-              alt="Rail Pass"
-              src="images/RWBDlogoRailPass.jpg"
-            />
-          </a>
+          {/* <a href="https://rail-werks-brewing-depot.square.site"> */}
+          <img
+            className="front-page__railpass-cta"
+            alt="Rail Pass"
+            src="images/RWBDlogoRailPass.jpg"
+          />
+          {/* </a> */}
         </div>
       </div>
       <DecorativePhotoBeerAndBarrel />
