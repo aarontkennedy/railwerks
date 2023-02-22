@@ -13,9 +13,7 @@ function Food() {
           <div className="food-page__item">
             Sliders with your choice of meat
           </div>
-          <div className="food-page__item">
-            Rail Ties - seasoned prezels with BBQ ranch dip
-          </div>
+          <div className="food-page__item">Rail Ties - seasoned prezels</div>
           <div className="food-page__item">Nachos served a variety of ways</div>
           <div className="food-page__item">Pig Candy - smoked pork belly</div>
         </div>
