@@ -12,17 +12,30 @@
 
   &__logo {
     position: absolute;
-    left: calc(50vw - 35vh / 1.4);
+    // left: calc(50vw - 35vh / 1.4);
+    left: 6vw;
     top: 10%;
-    height: 80%;
+    width: 90vw;
+    aspect-ratio: 570 / 777;
   }
 }
 
 @media (min-width: $tabletBreakpoint) {
   .decorative-photo-logo {
+    &__logo {
+      left: 11vw;
+      top: 10%;
+      width: 80vw;
+    }
+  }
+}
+
+@media (min-width: $desktopBreakpoint) {
+  .decorative-photo-logo {
     width: 100%;
 
     &__logo {
+      width: unset;
       position: absolute;
       right: 55%;
       left: unset;
