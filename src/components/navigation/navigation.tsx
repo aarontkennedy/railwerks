@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { railpassUrl } from "../../helpers/constants";
 import "./navigation.scss";
 
 interface NavigationProps {
@@ -17,13 +18,13 @@ function Navigation({ horizontal, handleClick }: NavigationProps): JSX.Element {
           About Us
         </Link>
       </div>
-      {/* <div className="navigation-link">
-        <a href="https://rail-werks-brewing-depot.square.site">Rail Pass</a>
-      </div> */}
       <div className="navigation-link">
         <Link to="food" onClick={handleClick}>
           Menu
         </Link>
+      </div>
+      <div className="navigation-link">
+        <a href={railpassUrl}>Rail Pass</a>
       </div>
       <div className="navigation-link">
         <Link to="contact" onClick={handleClick}>

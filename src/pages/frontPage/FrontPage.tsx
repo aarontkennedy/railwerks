@@ -1,5 +1,6 @@
 import DecorativePhotoBeerAndBarrel from "../../components/decorativePhoto/decorativePhotoBeerAndBarrel";
 import DecorativePhotoBeerWithLogo from "../../components/decorativePhoto/decorativePhotoBeerWithLogo";
+import { railpassUrl } from "../../helpers/constants";
 import "./frontPage.scss";
 
 function FrontPage(): JSX.Element {
@@ -57,13 +58,15 @@ function FrontPage(): JSX.Element {
 
           <h2>“One-time fee, lifetime benefits”</h2>
 
-          {/* <a href="https://rail-werks-brewing-depot.square.site"> */}
-          <img
-            className="front-page__railpass-cta"
-            alt="Rail Pass"
-            src="images/RWBDlogoRailPass.jpg"
-          />
-          {/* </a> */}
+          <div className="front-page__railpass-cta-wrap">
+            <a href={railpassUrl}>
+              <img
+                className="front-page__railpass-cta"
+                alt="Rail Pass"
+                src="images/RWBDlogoRailPass.jpg"
+              />
+            </a>
+          </div>
         </div>
       </div>
       <DecorativePhotoBeerAndBarrel />
