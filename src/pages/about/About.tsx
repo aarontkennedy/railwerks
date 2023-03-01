@@ -25,7 +25,7 @@ function About(): JSX.Element {
             </span>
           </h3>
           <p>
-            William has been a home brewer for over ten years. Starting with a
+            William has been brewing for over ten years. Starting with a
             simple kit he bought just for fun and soon found he had a knack for
             brewing. William quickly advanced through the learning curve and
             developed a passion for experimenting with different styles and

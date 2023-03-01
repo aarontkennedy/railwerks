@@ -6,6 +6,12 @@ function Food() {
   return (
     <div className="food-page">
       <PhotoBannerBbq />
+      <div className="food-page__section">
+        <div className="food-page__what-to-expect">
+          At Rail Werks Brewing Depot we pride ourselves on offering a variety
+          of foods. Here is a sampling of our favorites.
+        </div>
+      </div>
       <div className="food-page__content watermark">
         <div className="food-page__section">
           <h1 className="food-page__header food-page--center">Shareables</h1>

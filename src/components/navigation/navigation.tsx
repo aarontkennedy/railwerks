@@ -19,6 +19,11 @@ function Navigation({ horizontal, handleClick }: NavigationProps): JSX.Element {
         </Link>
       </div>
       <div className="navigation-link">
+        <Link to="beer" onClick={handleClick}>
+          Beer
+        </Link>
+      </div>
+      <div className="navigation-link">
         <Link to="food" onClick={handleClick}>
           Menu
         </Link>

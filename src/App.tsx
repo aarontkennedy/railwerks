@@ -7,6 +7,7 @@ import FrontPage from "./pages/frontPage/FrontPage";
 import About from "./pages/about/About";
 import Contact from "./pages/contact/Contact";
 import Food from "./pages/food/Food";
+import BeerPage from "./pages/beer/BeerPage";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="about" element={<About />} />
+        <Route path="beer" element={<BeerPage />} />
         <Route path="food" element={<Food />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" />} />

@@ -1,6 +1,6 @@
 @import "../../styles/variables";
 
-.food-page {
+.beer-page {
   &__content {
     padding: 25px 0 0 0;
     margin-left: auto;
@@ -17,20 +17,21 @@
     font-size: 1.2rem;
   }
 
-  &--center {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-  }
-
   &__section {
-    padding: 30px $mobileMargin 0 $mobileMargin;
+    padding: 25px $mobileMargin 0 $mobileMargin;
   }
 
   &__header {
     font-variant-caps: titling-caps;
     font-family: "Teko", sans-serif;
-    margin: 25px auto 10px auto;
+    margin: 20px auto 5px auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-variant-caps: titling-caps;
+    font-family: "Teko", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
   }
   &__item {
   }
@@ -57,7 +58,7 @@
 }
 
 @media (min-width: $tabletBreakpoint) {
-  .food-page {
+  .beer-page {
     &__section,
     &__what-to-expect {
       padding: 30px $tabletMargin 0 $tabletMargin;
@@ -66,7 +67,7 @@
 }
 
 @media (min-width: $desktopBreakpoint) {
-  .food-page {
+  .beer-page {
     &__section,
     &__what-to-expect {
       padding: 30px $desktopMargin 0 $desktopMargin;

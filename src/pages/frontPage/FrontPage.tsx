@@ -52,8 +52,8 @@ function FrontPage(): JSX.Element {
 
         <div className="front-page__content--center">
           <p>
-            Coming soon RAIL PASS, your opportunity to support Rail Werks
-            Brewing Depot. In return, receive FREE beer AND food!
+            CLICK HERE for your opportunity to support Rail Werks Brewing Depot.
+            In return, receive FREE beer AND food!
           </p>
 
           <h2>“One-time fee, lifetime benefits”</h2>
