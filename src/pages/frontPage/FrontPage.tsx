@@ -51,12 +51,11 @@ function FrontPage(): JSX.Element {
         </div>
 
         <div className="front-page__content--center">
-          <p>
-            CLICK HERE for your opportunity to support Rail Werks Brewing Depot.
-            In return, receive FREE beer AND food!
-          </p>
+          <h2>"Free beer, free food, free merch!"</h2>
 
-          <h2>“One-time fee, lifetime benefits”</h2>
+          <p>
+            Tap the Rail Pass button below to support Rail Werks Brewing Depot
+          </p>
 
           <div className="front-page__railpass-cta-wrap">
             <a href={railpassUrl}>
