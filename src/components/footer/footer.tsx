@@ -19,7 +19,7 @@ function Footer() {
         <div className="footer__value">
           <div>
             <a className="footer__map-link" href={googleMapUrl}>
-              4055 40th ST NE
+              4055 Central Ave NE
             </a>
           </div>
           <div>

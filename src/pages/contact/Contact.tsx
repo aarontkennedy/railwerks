@@ -23,7 +23,7 @@ function Contact(): JSX.Element {
           <div className="contact-page__detail">
             <div>
               <a className="contact-page__map-link" href={googleMapUrl}>
-                4055 40th ST NE
+                4055 Central Ave NE
               </a>
             </div>
             <div>

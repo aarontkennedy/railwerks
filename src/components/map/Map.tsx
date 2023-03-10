@@ -1,17 +1,18 @@
 import "./map.scss";
 
-export const googleMapUrl = "https://goo.gl/maps/hsjDDDjA3ooKvvHv8";
+export const googleMapUrl = "https://goo.gl/maps/27ebC93GnABs5HYWA";
 
 interface MapProps {
   small: boolean;
 }
 
 function Map({ small }: MapProps): JSX.Element {
-  const mapMode = "view";
+  const mapMode = "place";
   const apiKey = "AIzaSyCvEjzaF4BBc65LMgY8LH98hjK2OMooNz8";
-  const center = "45.0425,-93.247";
-  const zoom = 16;
-  const url = `https://www.google.com/maps/embed/v1/${mapMode}?key=${apiKey}&center=${center}&zoom=${zoom}`;
+  const query = "4055 Central Ave NE, Columbia Heights, MN 55421";
+  const url = `https://www.google.com/maps/embed/v1/${mapMode}?key=${apiKey}&q=${encodeURIComponent(
+    query
+  )}`;
 
   return (
     <div className={`map-container`}>
