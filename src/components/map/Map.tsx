@@ -9,7 +9,7 @@ interface MapProps {
 function Map({ small }: MapProps): JSX.Element {
   const mapMode = "place";
   const apiKey = "AIzaSyCvEjzaF4BBc65LMgY8LH98hjK2OMooNz8";
-  const query = "4055 Central Ave NE, Columbia Heights, MN 55421";
+  const query = "4055 NE Central Ave, Columbia Heights, MN 55421";
   const url = `https://www.google.com/maps/embed/v1/${mapMode}?key=${apiKey}&q=${encodeURIComponent(
     query
   )}`;
