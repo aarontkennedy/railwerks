@@ -3,7 +3,7 @@ import DecorativePhoto from "./decorativePhoto";
 
 function DecorativePhotoBeerAndBarrel(): JSX.Element {
   return (
-    <DecorativePhoto photoUrl="images/RWBDbeer.jpg" altText="Beer and barrel" />
+    <DecorativePhoto photoUrl="images/RWBDbeer.jpg" altText="Best Craft Beer" />
   );
 }
 

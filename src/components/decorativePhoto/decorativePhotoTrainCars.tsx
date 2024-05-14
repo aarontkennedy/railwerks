@@ -3,7 +3,10 @@ import DecorativePhoto from "./decorativePhoto";
 
 function DecorativePhotoTrainCars(): JSX.Element {
   return (
-    <DecorativePhoto photoUrl="images/trainCars.jpg" altText="Train cars" />
+    <DecorativePhoto
+      photoUrl="images/trainCars.jpg"
+      altText="Rail Werks Brewing Depot - Best Brewery in Northeast Minneapolis"
+    />
   );
 }
 

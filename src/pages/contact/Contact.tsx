@@ -19,8 +19,7 @@ function Contact(): JSX.Element {
         </title>
         <meta
           name="description"
-          content="Contact Rail Werks Brewing Depot – Your BBQ and Brewery in Columbia
-          Heights, MN"
+          content="Contact Rail Werks Brewing Depot – Your BBQ and Brewery in Columbia Heights and Northeast Minneapolis, MN"
         />
       </Helmet>
 

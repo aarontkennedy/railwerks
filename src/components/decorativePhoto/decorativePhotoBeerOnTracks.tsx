@@ -5,7 +5,7 @@ function DecorativePhotoBeerOnTracks(): JSX.Element {
   return (
     <DecorativePhoto
       photoUrl="images/beerOnTrack1.jpg"
-      altText="Beer on tracks"
+      altText="Best Beer in Columbia Heights"
     />
   );
 }

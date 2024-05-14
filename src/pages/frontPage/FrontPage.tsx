@@ -14,7 +14,7 @@ function FrontPage(): JSX.Element {
         </title>
         <meta
           name="description"
-          content="Rail Werks Brewing Depot – Best Craft Brews and BBQ in Columbia Heights, MN"
+          content="Rail Werks Brewing Depot – Best Craft Brews and BBQ in Columbia Heights and Northeast Minneapolis, MN"
         />
       </Helmet>
 

@@ -14,7 +14,7 @@ function About(): JSX.Element {
         <meta
           name="description"
           content="About Rail Werks Brewing Depot - Your BBQ and Brewery Destination in
-          Columbia Heights, MN"
+          Columbia Heights and Northeast Minneapolis, MN"
         />
       </Helmet>
 

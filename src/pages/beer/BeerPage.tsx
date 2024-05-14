@@ -82,8 +82,7 @@ function BeerPage() {
         </title>
         <meta
           name="description"
-          content="Craft Beer and Cocktails Menu – Rail Werks Brewing Depot, Columbia
-          Heights, MN"
+          content="Craft Beer and Cocktails Menu – Rail Werks Brewing Depot, Columbia Heights and Northeast Minneapolis, MN"
         />
       </Helmet>
 

@@ -7,7 +7,7 @@ function DecorativePhotoBeerWithLogo(): JSX.Element {
       <a href="#front-page-content">
         <img
           className="decorative-photo-logo__logo"
-          alt="RWBD"
+          alt="Rail Werks Brewing Depot"
           src="images/newLogoWithBorder2.jpg"
         />
       </a>
