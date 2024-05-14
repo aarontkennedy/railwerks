@@ -1,16 +1,31 @@
 import PhotoBannerBeerAndBarrel from "../../components/photoBanner/photoBannerBeerAndBarrel";
 import DecorativePhotoHops from "../../components/decorativePhoto/decorativePhotoHops";
+import { Helmet } from "react-helmet";
 import "./aboutPage.scss";
 
 function About(): JSX.Element {
   return (
     <div className="about-page">
+      <Helmet>
+        <title>
+          About Rail Werks Brewing Depot - Your BBQ and Brewery Destination in
+          Columbia Heights
+        </title>
+        <meta
+          name="description"
+          content="About Rail Werks Brewing Depot - Your BBQ and Brewery Destination in
+          Columbia Heights, MN"
+        />
+      </Helmet>
+
       <PhotoBannerBeerAndBarrel />
       <div className="about-page__content">
         <p>
-          Rail Werks Brewing Depot is a family-run business, literally. Husband
-          and wife team, William and Denise Roberts, head up the crew. Our
-          children, Rebecca and Ben, are along for the ride.
+          Rail Werks Brewing Depot is a family-run business founded by husband
+          and wife team, William and Denise Roberts. We have a passion for great
+          food, exceptional beer, and a sense of community. Located in Columbia
+          Heights, MN, we strive to be the go-to spot for families, friends, and
+          beer enthusiasts.
         </p>
 
         <div>
@@ -25,8 +40,8 @@ function About(): JSX.Element {
             </span>
           </h3>
           <p>
-            William has been brewing for over ten years. Starting with a
-            simple kit he bought just for fun and soon found he had a knack for
+            William has been brewing for over ten years. Starting with a simple
+            kit he bought just for fun and soon found he had a knack for
             brewing. William quickly advanced through the learning curve and
             developed a passion for experimenting with different styles and
             ingredients. Thanks to the patience of his loving wife Denise,

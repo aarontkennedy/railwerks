@@ -1,11 +1,23 @@
 import DecorativePhotoBeerAndBarrel from "../../components/decorativePhoto/decorativePhotoBeerAndBarrel";
 import DecorativePhotoBeerWithLogo from "../../components/decorativePhoto/decorativePhotoBeerWithLogo";
 import { railpassUrl } from "../../helpers/constants";
+import { Helmet } from "react-helmet";
 import "./frontPage.scss";
 
 function FrontPage(): JSX.Element {
   return (
     <div className="front-page">
+      <Helmet>
+        <title>
+          Welcome to Rail Werks Brewing Depot – Best Craft Brews and BBQ in
+          Columbia Heights, MN
+        </title>
+        <meta
+          name="description"
+          content="Rail Werks Brewing Depot – Best Craft Brews and BBQ in Columbia Heights, MN"
+        />
+      </Helmet>
+
       <DecorativePhotoBeerWithLogo />
       <div id="front-page-content"></div>
       <div className="front-page__content">
@@ -13,16 +25,18 @@ function FrontPage(): JSX.Element {
           Where the beer is cold, the BBQ is smokin', and family is everything.
         </h2>
 
-        <p>Welcome to Rail Werks Brewing Depot. We're glad you stopped by.</p>
-
         <p>
-          A brewery/restaurant experience of the likes Minnesota has never seen.
-          We feature rotating craft brews, smokin' BBQ and a large indoor space
-          for year round activities. Snow will never get in the way of the fun.
+          Welcome to Rail Werks Brewing Depot, your go-to spot for the best BBQ
+          and craft brews in Columbia Heights, MN. Our brewery is
+          family-friendly, with an inviting atmosphere, we offer an
+          unforgettable experience year-round.
         </p>
 
-        <div className="front-page__content--center">
-          <h2>"Free beer, free food, free merch!"</h2>
+        <div
+          className="front-page__content--center"
+          style={{ marginTop: "75px" }}
+        >
+          <h3>"Free beer, free food, free merch!"</h3>
 
           <p>
             Tap the Rail Pass button below to support Rail Werks Brewing Depot

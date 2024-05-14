@@ -1,35 +1,37 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { railpassUrl } from "../../helpers/constants";
+import { posUrl, railpassUrl } from "../../helpers/constants";
 import "./navigation.scss";
 
 interface NavigationProps {
   horizontal: boolean;
   handleClick: () => void;
+  showOrderNow: boolean;
 }
 
-function Navigation({ horizontal, handleClick }: NavigationProps): JSX.Element {
+function Navigation({
+  horizontal,
+  handleClick,
+  showOrderNow,
+}: NavigationProps): JSX.Element {
   return (
     <div
       className={horizontal ? "navigation-links" : "navigation-links--vertical"}
     >
+      {showOrderNow && (
+        <div className="navigation-link">
+          <a href={posUrl}>Order Now</a>
+        </div>
+      )}
+      <div className="navigation-link">
+        <Link to="beer" onClick={handleClick}>
+          Beer
+        </Link>
+      </div>
       <div className="navigation-link">
         <Link to="about" onClick={handleClick}>
           About Us
         </Link>
-      </div>
-      <div className="navigation-link">
-        <Link to="drinks" onClick={handleClick}>
-          Drinks
-        </Link>
-      </div>
-      <div className="navigation-link">
-        <Link to="food" onClick={handleClick}>
-          Food
-        </Link>
-      </div>
-      <div className="navigation-link">
-        <a href={railpassUrl}>Rail Pass</a>
       </div>
       <div className="navigation-link">
         <Link to="contact" onClick={handleClick}>

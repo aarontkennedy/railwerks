@@ -3,6 +3,7 @@ import DecorativePhotoTrainCars from "../../components/decorativePhoto/decorativ
 import "./contactPage.scss";
 import Map, { googleMapUrl } from "../../components/map/Map";
 import useWindowDimensions from "../../helpers/useWindowDimensions";
+import { Helmet } from "react-helmet";
 
 function Contact(): JSX.Element {
   const { height, width } = useWindowDimensions();
@@ -11,6 +12,18 @@ function Contact(): JSX.Element {
   };
   return (
     <div className="contact-page">
+      <Helmet>
+        <title>
+          Contact Rail Werks Brewing Depot – Your BBQ and Brewery in Columbia
+          Heights, MN
+        </title>
+        <meta
+          name="description"
+          content="Contact Rail Werks Brewing Depot – Your BBQ and Brewery in Columbia
+          Heights, MN"
+        />
+      </Helmet>
+
       <PhotoBannerHops />
       <div className="contact-page__content">
         <div className="contact-page__column">

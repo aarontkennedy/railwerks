@@ -3,6 +3,7 @@ import Navigation from "../navigation/navigation";
 import SocialNavigation from "../socialNavigation/socialNavigation";
 import "./footer.scss";
 import Map, { googleMapUrl } from "../../components/map/Map";
+import { posUrl } from "../../helpers/constants";
 
 function Footer() {
   return (
@@ -43,6 +44,7 @@ function Footer() {
           handleClick={() => {
             window.scrollTo(0, 0);
           }}
+          showOrderNow={true}
         />
 
         <div className="footer--center footer__value">

@@ -12,21 +12,12 @@
 
   &__logo {
     position: absolute;
-    // left: calc(50vw - 35vh / 1.4);
-    left: 6vw;
-    top: 10%;
-    width: 90vw;
+    left: 50%;
+    margin-left: calc(-50% / 2);
+    top: 15%;
+    height: 60%;
+    border-radius: 5px;
     aspect-ratio: 570 / 777;
-  }
-}
-
-@media (min-width: $tabletBreakpoint) {
-  .decorative-photo-logo {
-    &__logo {
-      left: 11vw;
-      top: 10%;
-      width: 80vw;
-    }
   }
 }
 

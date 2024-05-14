@@ -5,14 +5,15 @@ import SocialNavigation from "../socialNavigation/socialNavigation";
 import Navigation from "../navigation/navigation";
 import { ReactComponent as RwbdIcon } from "../../icons/crossingTracksLogo.svg";
 import { ReactComponent as MenuIcon } from "../../icons/bars-solid.svg";
-import useWindowDimensions from "../../helpers/useWindowDimensions";
+import { posUrl } from "../../helpers/constants";
+// import useWindowDimensions from "../../helpers/useWindowDimensions";
 
 function Header(): JSX.Element {
   const [toggle, setToggle] = useState(false);
-  const { height, width } = useWindowDimensions();
-  const isDesktop = () => {
-    return (width ?? 0) >= 1024; // assume mobile?
-  };
+  // const { height, width } = useWindowDimensions();
+  // const isDesktop = () => {
+  //   return (width ?? 0) >= 1024; // assume mobile?
+  // };
 
   const { pathname } = useLocation();
 
@@ -35,25 +36,32 @@ function Header(): JSX.Element {
     );
   };
 
-  if (isDesktop()) {
-    return (
-      <header className="header">
-        {getBranding()}
-        <Navigation
-          horizontal={true}
-          handleClick={() => {
-            window.scrollTo(0, 0);
-          }}
-        />
-        <SocialNavigation />
-      </header>
-    );
-  }
+  // if (isDesktop()) {
+  //   return (
+  //     <header className="header">
+  //       {getBranding()}
+  //       <Navigation
+  //         horizontal={true}
+  //         handleClick={() => {
+  //           window.scrollTo(0, 0);
+  //         }}
+  //       />
+  //       <SocialNavigation />
+  //     </header>
+  //   );
+  // }
 
   return (
     <header className={`header ${toggle ? "header--toggled" : ""}`}>
       <div className="header__mobile-wrapper">
         {getBranding()}
+        <a
+          className="header__order-now"
+          style={{ marginBottom: 0 }}
+          href={posUrl}
+        >
+          Order Now
+        </a>
         <div
           className="header__navigation-toggle"
           onClick={() => {
@@ -71,6 +79,7 @@ function Header(): JSX.Element {
               setToggle(false);
               window.scrollTo(0, 0);
             }}
+            showOrderNow={false}
           />
           <SocialNavigation />
         </div>
