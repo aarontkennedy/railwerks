@@ -8,7 +8,7 @@ function DecorativePhotoBeerWithLogo(): JSX.Element {
         <img
           className="decorative-photo-logo__logo"
           alt="RWBD"
-          src="images/newLogoWithBorder.png"
+          src="images/newLogoWithBorder2.jpg"
         />
       </a>
     </div>

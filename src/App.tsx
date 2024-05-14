@@ -16,7 +16,7 @@ function App() {
       <Routes>
         <Route path="/" element={<FrontPage />} />
         <Route path="about" element={<About />} />
-        <Route path="beer" element={<BeerPage />} />
+        <Route path="drinks" element={<BeerPage />} />
         <Route path="food" element={<Food />} />
         <Route path="contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" />} />

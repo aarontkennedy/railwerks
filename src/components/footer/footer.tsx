@@ -32,8 +32,8 @@ function Footer() {
           </div>
         </div>
         <div>
-          <h4 className="footer__title">Hours</h4>
-          <div className="footer__value">Coming Soon!</div>
+          {/* <h4 className="footer__title">Hours</h4>
+          <div className="footer__value">Coming Soon!</div> */}
         </div>
       </div>
 
