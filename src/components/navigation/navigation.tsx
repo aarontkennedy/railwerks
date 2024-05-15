@@ -25,7 +25,7 @@ function Navigation({
       )}
       <div className="navigation-link">
         <Link to="beer" onClick={handleClick}>
-          Beer
+          Beer & Drink Menu
         </Link>
       </div>
       <div className="navigation-link">
@@ -35,7 +35,7 @@ function Navigation({
       </div>
       <div className="navigation-link">
         <Link to="contact" onClick={handleClick}>
-          Contact
+          Contact Us
         </Link>
       </div>
     </div>

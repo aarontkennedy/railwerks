@@ -3,7 +3,9 @@
 .decorative-photo-logo {
   margin-top: $menuHeight;
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: calc(100vh - $menuHeight);
   background-image: url("../../../public/images/beerOnTrack1.jpg");
   background-position: center; /* Center the image */
@@ -11,11 +13,7 @@
   background-size: cover; /* Resize the background image to cover the entire container */
 
   &__logo {
-    position: absolute;
-    left: 50%;
-    margin-left: calc(-50% / 2);
-    top: 15%;
-    height: 60%;
+    height: 60vh;
     border-radius: 5px;
     aspect-ratio: 570 / 777;
   }
@@ -23,6 +21,9 @@
 
 @media (min-width: $desktopBreakpoint) {
   .decorative-photo-logo {
+    display: block;
+    align-items: unset;
+    justify-content: unset;
     width: 100%;
 
     &__logo {
