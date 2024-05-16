@@ -13,7 +13,9 @@ function Footer() {
           Rail Werks Brewing Depot &trade;
         </div>
         <div className="footer__value">
-          <div>612-367-6758</div>
+          <div>
+            <a href="tel:612-367-6758">612-367-6758</a>
+          </div>
           <a href="mailto:info@railwerksbrewingdepot.com">
             info@railwerksbrewingdepot.com
           </a>
