@@ -13,6 +13,7 @@ function Footer() {
           Rail Werks Brewing Depot &trade;
         </div>
         <div className="footer__value">
+          <div>612-367-6758</div>
           <a href="mailto:info@railwerksbrewingdepot.com">
             info@railwerksbrewingdepot.com
           </a>

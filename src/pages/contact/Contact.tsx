@@ -28,6 +28,7 @@ function Contact(): JSX.Element {
         <div className="contact-page__column">
           <div className="contact-page__brand">Rail Werks Brewing Depot</div>
           <div className="contact-page__detail">
+            <div>612-367-6758</div>
             <a href="mailto:info@railwerksbrewingdepot.com">
               info@railwerksbrewingdepot.com
             </a>
