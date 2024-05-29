@@ -3,7 +3,6 @@ import Navigation from "../navigation/navigation";
 import SocialNavigation from "../socialNavigation/socialNavigation";
 import "./footer.scss";
 import Map, { googleMapUrl } from "../../components/map/Map";
-import { posUrl } from "../../helpers/constants";
 
 function Footer() {
   return (
@@ -35,10 +34,10 @@ function Footer() {
             <Map small={true} />
           </div>
         </div>
-        <div>
-          {/* <h4 className="footer__title">Hours</h4>
-          <div className="footer__value">Coming Soon!</div> */}
-        </div>
+        {/* <div>
+          <h4 className="footer__title">Hours</h4>
+          <div className="footer__value">Coming Soon!</div>
+        </div> */}
       </div>
 
       <div className="footer__column">
