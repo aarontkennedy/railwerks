@@ -38,6 +38,12 @@
   &__map-link {
     text-decoration: none;
   }
+
+  &__hours-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
 }
 
 @media (min-width: $tabletBreakpoint) {

@@ -34,10 +34,15 @@ function Footer() {
             <Map small={true} />
           </div>
         </div>
-        {/* <div>
+        <div>
           <h4 className="footer__title">Hours</h4>
-          <div className="footer__value">Coming Soon!</div>
-        </div> */}
+          <div className="footer__value">
+            <ul className="footer__hours-list">
+              <li>Sunday-Thursday 11AM–9PM</li>
+              <li>Friday & Saturday 11AM–12AM</li>
+            </ul>
+          </div>
+        </div>
       </div>
 
       <div className="footer__column">
