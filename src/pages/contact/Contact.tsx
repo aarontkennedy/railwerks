@@ -47,18 +47,30 @@ function Contact(): JSX.Element {
               </a>
             </div>
           </div>
+          {isTabletOrLarger() && (
+            <div>
+              <h4 className="contact-page__hours-title">Hours</h4>
+              <ul className="contact-page__hours-list">
+                <li>Sunday-Thursday 11AM–9PM</li>
+                <li>Friday & Saturday 11AM–12AM</li>
+              </ul>
+            </div>
+          )}
         </div>
         <div className="contact-page__column">
           <Map small={!isTabletOrLarger()} />
         </div>
-        <div>
-          <h4 className="contact-page__hours-title">Hours</h4>
-          <ul className="contact-page__hours-list">
-            <li>Sunday-Thursday 11AM–9PM</li>
-            <li>Friday & Saturday 11AM–12AM</li>
-          </ul>
-        </div>
+        {!isTabletOrLarger() && (
+          <div>
+            <h4 className="contact-page__hours-title">Hours</h4>
+            <ul className="contact-page__hours-list">
+              <li>Sunday-Thursday 11AM–9PM</li>
+              <li>Friday & Saturday 11AM–12AM</li>
+            </ul>
+          </div>
+        )}
       </div>
+
       <DecorativePhotoTrainCars />
     </div>
   );

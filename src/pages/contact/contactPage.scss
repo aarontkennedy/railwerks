@@ -44,7 +44,7 @@
   }
 }
 
-@media (min-width: $desktopBreakpoint) {
+@media (min-width: $tabletBreakpoint) {
   .contact-page {
     &__content {
       padding: 50px $desktopMargin 0 $desktopMargin;
