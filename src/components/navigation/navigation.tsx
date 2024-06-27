@@ -25,7 +25,12 @@ function Navigation({
       )}
       <div className="navigation-link">
         <Link to="beer" onClick={handleClick}>
-          Beer & Drink Menu
+          Beer Menu
+        </Link>
+      </div>
+      <div className="navigation-link">
+        <Link to="events" onClick={handleClick}>
+          Events
         </Link>
       </div>
       <div className="navigation-link">

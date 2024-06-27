@@ -36,12 +36,10 @@ function FrontPage(): JSX.Element {
           className="front-page__content--center"
           style={{ marginTop: "75px" }}
         >
-          <h3>"Free beer, free food, free merch!"</h3>
-
+          {/* <h3>"Free beer, free food, free merch!"</h3>
           <p>
             Tap the Rail Pass button below to support Rail Werks Brewing Depot
           </p>
-
           <div className="front-page__railpass-cta-wrap">
             <a href={railpassUrl}>
               <img
@@ -50,7 +48,7 @@ function FrontPage(): JSX.Element {
                 src="images/RWBDlogoRailPass.jpg"
               />
             </a>
-          </div>
+          </div> */}
         </div>
       </div>
       <DecorativePhotoBeerAndBarrel />
