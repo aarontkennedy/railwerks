@@ -71,31 +71,37 @@ function EventsPage() {
         </div>
       </div>
       <div className="events-page__content watermark">
-        {events.map(function (e) {
-          const eventDate = new Date(e.date);
-          return (
-            <div className="events-page__section" key={`${e.name}-${e.date}`}>
-              <div>
+        {events
+          .filter((e) => {
+            const eventDate = new Date(e.date);
+            const today = new Date();
+            return eventDate >= today;
+          })
+          .map(function (e) {
+            const eventDate = new Date(e.date);
+            return (
+              <div className="events-page__section" key={`${e.name}-${e.date}`}>
                 <div>
                   <div>
-                    {dayNames[eventDate.getDay()]},{" "}
-                    {monthNames[eventDate.getMonth()]} {eventDate.getDate()} at{" "}
-                    {e.time.toLowerCase()}
-                  </div>
-                  <div>
-                    <a
-                      className="events-page__event-title"
-                      href="{e.url}"
-                      target="_blank"
-                    >
-                      {e.name}
-                    </a>
+                    <div>
+                      {dayNames[eventDate.getDay()]},{" "}
+                      {monthNames[eventDate.getMonth()]} {eventDate.getDate()}{" "}
+                      at {e.time.toLowerCase()}
+                    </div>
+                    <div>
+                      <a
+                        className="events-page__event-title"
+                        href="{e.url}"
+                        target="_blank"
+                      >
+                        {e.name}
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
 
       <DecorativePhotoTrainCar />

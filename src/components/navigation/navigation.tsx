@@ -28,11 +28,11 @@ function Navigation({
           Beer Menu
         </Link>
       </div>
-      <div className="navigation-link">
+      {/* <div className="navigation-link">
         <Link to="events" onClick={handleClick}>
           Events
         </Link>
-      </div>
+      </div> */}
       <div className="navigation-link">
         <Link to="about" onClick={handleClick}>
           About Us
