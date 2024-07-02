@@ -3,6 +3,7 @@ import Navigation from "../navigation/navigation";
 import SocialNavigation from "../socialNavigation/socialNavigation";
 import "./footer.scss";
 import Map, { googleMapUrl } from "../../components/map/Map";
+import Hours from "../../components/hours";
 
 function Footer() {
   return (
@@ -34,15 +35,7 @@ function Footer() {
             <Map small={true} />
           </div>
         </div>
-        <div>
-          <h4 className="footer__title">Hours</h4>
-          <div className="footer__value">
-            <ul className="footer__hours-list">
-              <li>Sunday-Thursday 11AM–9PM</li>
-              <li>Friday & Saturday 11AM–12AM</li>
-            </ul>
-          </div>
-        </div>
+        <Hours namespace="footer" />
       </div>
 
       <div className="footer__column">
