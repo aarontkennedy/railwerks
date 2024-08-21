@@ -1,0 +1,82 @@
+@import "../base.scss";
+
+.home-page {
+  padding: 35px $mobileMargin 35px $mobileMargin;
+
+  &__about {
+    margin: 20px auto;
+
+    &-title {
+      margin: 20px auto;
+      max-width: 700px;
+      font-size: 1.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    &-description {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 700px;
+      font-size: 1.2rem;
+      text-align: left;
+    }
+    &-button-holder {
+      margin: 50px auto 70px auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+
+  &__big-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 50px auto;
+
+    &-item {
+      display: block;
+      margin: 20px auto;
+      color: white;
+      text-decoration: none;
+      flex-basis: 100%;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-text {
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      margin: 20px auto;
+      font-size: 20px;
+    }
+  }
+}
+
+@media (min-width: 780px) {
+  .home-page {
+    &__big-menu {
+      flex-direction: row;
+      align-items: center;
+      &-item {
+        flex-basis: 50%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) {
+  .home-page {
+    &__big-menu {
+      flex-direction: row;
+      align-items: center;
+      &-item {
+        flex-basis: 25%;
+      }
+    }
+  }
+}

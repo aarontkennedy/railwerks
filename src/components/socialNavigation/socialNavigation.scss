@@ -1,15 +1,11 @@
-@import "../../styles/variables";
+@import "../../base.scss";
 
 .social-navigation {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  &__icon {
-    width: 40px;
+  a {
     padding: 10px;
-    &:hover {
-      width: 41px;
-    }
   }
 }

@@ -1,0 +1,38 @@
+@import "../base.scss";
+
+.beer-page {
+  padding: 35px $mobileMargin 35px $mobileMargin;
+
+  &__content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    font-size: 1.2rem;
+  }
+
+  &__what-to-expect {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+
+  &__header {
+    font-variant-caps: titling-caps;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-variant-caps: titling-caps;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  &__item {
+    color: $secondary;
+  }
+  &__abv {
+    color: $secondary;
+    font-size: 1rem;
+  }
+}

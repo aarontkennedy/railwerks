@@ -1,12 +1,15 @@
+import * as React from "react";
 import "./map.scss";
 
 export const googleMapUrl = "https://goo.gl/maps/27ebC93GnABs5HYWA";
 
-interface MapProps {
-  small: boolean;
-}
-
-function Map({ small }: MapProps): JSX.Element {
+function Map({
+  width,
+  height,
+}: {
+  width: string | number;
+  height: string | number;
+}): JSX.Element {
   const mapMode = "place";
   const apiKey = "AIzaSyCvEjzaF4BBc65LMgY8LH98hjK2OMooNz8";
   const query = "4055 NE Central Ave, Columbia Heights, MN 55421";
@@ -19,8 +22,8 @@ function Map({ small }: MapProps): JSX.Element {
       <iframe
         title="RWBD Map"
         className="map"
-        width={small ? 250 : 400}
-        height={small ? 250 : 400}
+        width={width}
+        height={height}
         frameBorder="0"
         referrerPolicy="no-referrer-when-downgrade"
         src={url}

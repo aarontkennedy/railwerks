@@ -1,0 +1,31 @@
+@import "../base.scss";
+
+.contact-page {
+  padding: 35px $mobileMargin 35px $mobileMargin;
+
+  &__brand {
+    margin: 20px auto;
+    max-width: 700px;
+    font-size: 1.2rem;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  &__detail {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+
+    a {
+      display: block;
+      color: $primary;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

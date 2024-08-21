@@ -1,11 +1,10 @@
-import React from "react";
-import Navigation from "../navigation/navigation";
-import SocialNavigation from "../socialNavigation/socialNavigation";
+import * as React from "react";
 import "./footer.scss";
-import Map, { googleMapUrl } from "../../components/map/Map";
-import Hours from "../../components/hours";
+import Map, { googleMapUrl } from "../map/Map";
+import SocialNavigation from "../socialNavigation/socialNavigation";
+import Hours from "../hours";
 
-function Footer() {
+const Footer = (): JSX.Element => {
   return (
     <footer className="footer">
       <div className="footer__column">
@@ -13,9 +12,8 @@ function Footer() {
           Rail Werks Brewing Depot &trade;
         </div>
         <div className="footer__value">
-          <div>
-            <a href="tel:612-367-6758">612-367-6758</a>
-          </div>
+          <a href="tel:612-367-6758">612-367-6758</a>
+          <br />
           <a href="mailto:info@railwerksbrewingdepot.com">
             info@railwerksbrewingdepot.com
           </a>
@@ -24,35 +22,24 @@ function Footer() {
           <div>
             <a className="footer__map-link" href={googleMapUrl}>
               4055 NE Central Ave
-            </a>
-          </div>
-          <div>
-            <a className="footer__map-link" href={googleMapUrl}>
+              <br />
               Columbia Heights, MN 55421
             </a>
           </div>
           <div>
-            <Map small={true} />
+            <Map width={250} height={250} />
           </div>
         </div>
-        <Hours namespace="footer" />
       </div>
 
       <div className="footer__column">
-        <Navigation
-          horizontal={false}
-          handleClick={() => {
-            window.scrollTo(0, 0);
-          }}
-          showOrderNow={true}
-        />
-
+        <Hours namespace="footer" />
         <div className="footer--center footer__value">
           <SocialNavigation />
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

@@ -1,25 +1,28 @@
 import React from "react";
 import "./socialNavigation.scss";
-import { ReactComponent as EnvelopeIcon } from "../../icons/envelope-regular.svg";
-import { ReactComponent as InstagramIcon } from "../../icons/instagram.svg";
-import { ReactComponent as FacebookIcon } from "../../icons/square-facebook.svg";
+import EnvelopeIcon from "../../images/svg/envelopeIcon";
+import InstagramIcon from "../../images/svg/instagramIcon";
+import FacebookIcon from "../../images/svg/squareFacebookIcon";
 
-function SocialNavigation(): JSX.Element {
+const SocialNavigation = (): JSX.Element => {
   return (
     <div className="social-navigation">
-      <a href="https://www.facebook.com/Rail-Werks-Brewing-Depot-698173990540554/">
-        <FacebookIcon className="social-navigation__icon" />
+      <a
+        aria-label="Facebook"
+        href="https://www.facebook.com/Rail-Werks-Brewing-Depot-698173990540554/"
+      >
+        <FacebookIcon width={30} hexColor="#FFFFFF" />
       </a>
 
-      <a href="https://www.instagram.com/railwerksbd/">
-        <InstagramIcon className="social-navigation__icon" />
+      <a aria-label="Instagram" href="https://www.instagram.com/railwerksbd/">
+        <InstagramIcon width={30} hexColor="#FFFFFF" />
       </a>
 
-      <a href="mailto:info@railwerksbrewingdepot.com">
-        <EnvelopeIcon className="social-navigation__icon" />
+      <a aria-label="Email" href="mailto:info@railwerksbrewingdepot.com">
+        <EnvelopeIcon width={30} hexColor="#FFFFFF" />
       </a>
     </div>
   );
-}
+};
 
 export default SocialNavigation;

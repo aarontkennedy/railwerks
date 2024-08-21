@@ -1,0 +1,24 @@
+@import "../../base.scss";
+
+.main-nav {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: $menuBackground;
+  opacity: 0.95;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  height: $menuHeight;
+  z-index: 100;
+}
+
+@media (min-width: 780px) {
+  .main-nav {
+    justify-content: space-between;
+  }
+}

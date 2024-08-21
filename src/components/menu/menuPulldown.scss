@@ -1,0 +1,55 @@
+@import "../../base.scss";
+
+$linkLineHeight: 20px;
+
+.menu-pulldown {
+  &__wrapper {
+    flex: 1 1 0px;
+    text-align: center;
+    position: relative;
+  }
+
+  &__link {
+    color: $menuPrimary;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    line-height: $linkLineHeight;
+  }
+
+  &__container {
+    background-color: $pullDownMenuBackground;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    max-height: 0;
+    min-width: fit-content;
+    overflow: hidden;
+    transition: max-height ease 0.4s;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    top: calc(($linkLineHeight - 5px) + (($menuHeight - $linkLineHeight) / 2));
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    a {
+      color: $menuBackground;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 20px;
+      margin-top: 22px;
+      padding-left: 20px;
+      padding-right: 20px;
+      white-space: nowrap;
+
+      &:last-child {
+        margin-bottom: 22px;
+      }
+    }
+  }
+}

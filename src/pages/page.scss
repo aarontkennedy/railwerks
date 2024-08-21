@@ -1,0 +1,45 @@
+@import "../base.scss";
+
+.page {
+  // padding-top: $menuHeight;
+  background-color: $background;
+  color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__hero-wrapper {
+    position: relative;
+  }
+  &__hero-title {
+    position: absolute;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    padding-left: calc(0.5 * $menuHeight);
+    padding-top: calc(1.5 * $menuHeight);
+    width: 100%;
+    min-height: fit-content;
+    height: 45vh;
+    max-height: 50vh;
+    font-size: 50px;
+    font-weight: bold;
+    background-image: linear-gradient(black, rgb(0, 0, 0, 0));
+  }
+  &__hero-logo {
+    position: absolute;
+    top: calc($menuHeight + ($heroHeight - $menuHeight) / 2);
+    left: 50%;
+    translate: -50% calc(-1 * (($heroHeight - $menuHeight) / 4));
+    height: calc(($heroHeight - $menuHeight) / 2);
+    width: calc(($heroHeight - $menuHeight) / 2);
+
+    img {
+      width: calc(($heroHeight - $menuHeight) / 2);
+      height: calc(($heroHeight - $menuHeight) / 2);
+      border-radius: 50%;
+      border: 5px solid black;
+    }
+  }
+}
