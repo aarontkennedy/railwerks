@@ -2,7 +2,7 @@ import * as React from "react";
 import MetaHelper from "../components/MetaHelper";
 import { useState, useEffect } from "react";
 import Beer from "../types/beer";
-import { getCsvData } from "../helpers/getCsvData";
+import { getCsvDataWithCookieCaching } from "../helpers/getCsvData";
 import PageLayout from "../components/pageLayout";
 import "../styles/beerPage.scss";
 import { StaticImage } from "gatsby-plugin-image";
@@ -12,13 +12,15 @@ import {
 } from "../helpers/constants";
 import { useScreenDetector } from "../helpers/useScreenDetector";
 
+const beerCsvUrl = "https://railwerks.s3.us-east-2.amazonaws.com/beers.csv";
+
 const BeerPage = () => {
   const [beers, setBeers] = useState<Beer[]>([]);
   const { isMobile, isTablet, isDesktop } = useScreenDetector();
 
   useEffect(() => {
     try {
-      getCsvData("/data/beers.csv", false).then((rawBeerData) => {
+      getCsvDataWithCookieCaching(beerCsvUrl, false).then((rawBeerData) => {
         const beers: Beer[] = [];
         rawBeerData.forEach((row) => {
           if (row[0]) {

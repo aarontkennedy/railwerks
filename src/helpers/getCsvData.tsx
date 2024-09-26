@@ -24,3 +24,64 @@ export const getCsvData = async function (
   }
   return data;
 };
+
+const setItemWithExpiration = (
+  key: string,
+  value: any,
+  expirationTimeInHours: number
+) => {
+  try {
+    const now = new Date().getTime();
+    const expirationTimeInMilliseconds = expirationTimeInHours * 60 * 60 * 1000;
+    const item = {
+      value: value,
+      expiry: now + expirationTimeInMilliseconds,
+    };
+    localStorage.setItem(key, JSON.stringify(item));
+  } catch (e) {
+    /* do nothing, unsupported? */
+  }
+};
+
+const getItemWithExpiration = (key: string) => {
+  try {
+    const itemStr = localStorage.getItem(key);
+    if (!itemStr) {
+      return null;
+    }
+
+    const item = JSON.parse(itemStr);
+    const now = new Date().getTime();
+
+    if (now > item.expiry) {
+      localStorage.removeItem(key);
+      return null;
+    }
+
+    return item.value;
+  } catch (e) {
+    /* do nothing, unsupported? */
+  }
+};
+
+export const getCsvDataWithCookieCaching = async function (
+  url: string,
+  includeColumnNames: boolean = true,
+  expirationTimeInHours: number = 3
+) {
+  const cached = getItemWithExpiration(url);
+  if (cached) {
+    return cached;
+  }
+
+  const response = await fetch(url);
+  const text = await response.text();
+  let data = csvStringToArray(text);
+  if (!includeColumnNames) {
+    data.shift();
+  }
+
+  setItemWithExpiration(url, data, expirationTimeInHours);
+
+  return data;
+};
