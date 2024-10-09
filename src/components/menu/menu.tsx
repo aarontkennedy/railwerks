@@ -3,7 +3,6 @@ import { Link } from "gatsby";
 import { StaticImage } from "gatsby-plugin-image";
 import { useState } from "react";
 import "./menu.scss";
-import useWindowDimensions from "../../helpers/useWindowDimensions";
 import MobileMenu from "./mobileMenu";
 import MenuPulldown from "./menuPulldown";
 import OrderOnlineButton from "../orderOnlineButton/orderOnlineButton";

@@ -1,0 +1,89 @@
+@import "../base.scss";
+
+.admin-page {
+  padding: 35px $mobileMargin 35px $mobileMargin;
+
+  &__content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 700px;
+    font-size: 1.2rem;
+  }
+
+  &__header {
+    font-variant-caps: titling-caps;
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-variant-caps: titling-caps;
+    font-weight: bold;
+    font-size: 30px;
+  }
+
+  &__button-container {
+    margin: 20px auto 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    button {
+      padding: 5px 10px;
+      background-color: white;
+      border-radius: 5px;
+      border: 1px solid black;
+      cursor: pointer;
+    }
+  }
+
+  button.icon {
+    border: none;
+    background-color: $background;
+    border-radius: 5px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+
+  table {
+    border-spacing: 0;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  tr:nth-child(even) {
+    background-color: #111111;
+    button.icon {
+      background-color: #111111;
+      &:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  .modal {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    color: $background;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+}
