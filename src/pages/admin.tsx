@@ -14,7 +14,13 @@ import {
 import TrashIcon from "../images/svg/trashIcon";
 import EditIcon from "../images/svg/editIcon";
 import { DndContext } from "@dnd-kit/core";
-import { SortableContext } from "@dnd-kit/sortable";
+import {
+  arrayMove,
+  SortableContext,
+  useSortable,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
+import { CSS } from "@dnd-kit/utilities";
 
 const beerCsvUrl = "https://railwerks.s3.us-east-2.amazonaws.com/beers.csv";
 
@@ -115,6 +121,59 @@ const AdminPage = () => {
   const [editBeerDescription, setEditBeerDescription] = useState("");
   const [editBeerABV, setEditBeerABV] = useState("");
 
+  const handleDragEnd = (event) => {
+    const { active, over } = event;
+
+    if (active.id !== over.id) {
+      console.log();
+      setBeers((beers) => {
+        const oldIndex = beers.findIndex((f) => f.name === active.name);
+        const newIndex = beers.findIndex((f) => f.name === over.name);
+        return arrayMove(beers, oldIndex, newIndex);
+      });
+    }
+  };
+
+  const SortableItem = ({ b }: { b: Beer }): JSX.Element => {
+    const { attributes, listeners, setNodeRef, transform, transition } =
+      useSortable({ id: b.name });
+
+    const style = {
+      transform: CSS.Transform.toString(transform),
+      transition,
+    };
+
+    return (
+      <li ref={setNodeRef} style={style}>
+        <div>{b.name.toUpperCase()}</div>
+        <div>{b.description}</div>
+        <div>{b.alcoholPercent}</div>
+        <div>
+          <button
+            className="icon"
+            onClick={() => setBeerSelectedForDeletion(b)}
+          >
+            <TrashIcon width={30} hexColor="#FFFFFF" />
+          </button>
+          <button
+            className="icon"
+            onClick={() => {
+              setEditBeerName(b.name);
+              setEditBeerDescription(b.description);
+              setEditBeerABV(b.alcoholPercent.toString());
+              setBeerSelectedForEdit(b);
+            }}
+          >
+            <EditIcon width={30} hexColor="#FFFFFF" />
+          </button>
+          <button {...attributes} {...listeners}>
+            ⣿
+          </button>
+        </div>
+      </li>
+    );
+  };
+
   const filterOutBeer = (
     beers: Beer[],
     beerSelectedForDeletion: Beer | null
@@ -171,127 +230,96 @@ const AdminPage = () => {
 
   return (
     <PageLayout>
-      <DndContext>
-        <SortableContext items={beers}>
-          <div className="page__hero-wrapper">
-            <StaticImage
-              alt="Beer Flight"
-              src="../images/flight.jpg"
-              placeholder="blurred"
-              layout="fullWidth"
-              imgStyle={
-                isDesktop ? desktopHeroImageStyle : mobileHeroImageStyle
-              }
-              style={isDesktop ? desktopHeroImageStyle : mobileHeroImageStyle}
-            />
-            <div className="page__hero-title">Admin</div>
+      <div className="page__hero-wrapper">
+        <StaticImage
+          alt="Beer Flight"
+          src="../images/flight.jpg"
+          placeholder="blurred"
+          layout="fullWidth"
+          imgStyle={isDesktop ? desktopHeroImageStyle : mobileHeroImageStyle}
+          style={isDesktop ? desktopHeroImageStyle : mobileHeroImageStyle}
+        />
+        <div className="page__hero-title">Admin</div>
+      </div>
+      <div className="admin-page">
+        <div className="admin-page__content">
+          <div>
+            <div>Name</div>
+            <div>Description</div>
+            <div>ABV</div>
           </div>
-          <div className="admin-page">
-            <div className="admin-page__content">
-              <table className="">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Description</th>
-                    <th>ABV</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {beers.map(function (b) {
-                    return (
-                      <tr key={`${b.name}-${b.alcoholPercent}`}>
-                        <td>{b.name.toUpperCase()}</td>
-                        <td>{b.description}</td>
-                        <td>{b.alcoholPercent}</td>
-                        <td>
-                          <button
-                            className="icon"
-                            onClick={() => setBeerSelectedForDeletion(b)}
-                          >
-                            <TrashIcon width={30} hexColor="#FFFFFF" />
-                          </button>
-                        </td>
-                        <td>
-                          <button
-                            className="icon"
-                            onClick={() => {
-                              setEditBeerName(b.name);
-                              setEditBeerDescription(b.description);
-                              setEditBeerABV(b.alcoholPercent.toString());
-                              setBeerSelectedForEdit(b);
-                            }}
-                          >
-                            <EditIcon width={30} hexColor="#FFFFFF" />
-                          </button>
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
-              <div className="admin-page__button-container">
-                <button
-                  onClick={() => {
-                    setEditBeerName("");
-                    setEditBeerDescription("");
-                    setEditBeerABV("");
-                    setShowAddBeerModal(true);
-                  }}
-                >
-                  Add new beer
-                </button>
-                <button onClick={downloadBeerList}>Download beer list</button>
+          <DndContext onDragEnd={handleDragEnd}>
+            <SortableContext
+              items={beers.map((b) => b.name)}
+              strategy={verticalListSortingStrategy}
+            >
+              <ol className="">
+                {beers.map(function (b) {
+                  return <SortableItem key={b.name} b={b} />;
+                })}
+              </ol>
+            </SortableContext>
+          </DndContext>
+          <div className="admin-page__button-container">
+            <button
+              onClick={() => {
+                setEditBeerName("");
+                setEditBeerDescription("");
+                setEditBeerABV("");
+                setShowAddBeerModal(true);
+              }}
+            >
+              Add new beer
+            </button>
+            <button onClick={downloadBeerList}>Download beer list</button>
 
-                {/* <button>Save beer list</button>
+            {/* <button>Save beer list</button>
             </div> */}
-              </div>
-            </div>
-            <DeleteBeerModal
-              beer={beerSelectedForDeletion}
-              onCancel={() => setBeerSelectedForDeletion(null)}
-              onSubmit={() => {
-                const remainingBeers = filterOutBeer(
-                  beers,
-                  beerSelectedForDeletion
-                );
-                setBeers(remainingBeers);
-                setBeerSelectedForDeletion(null);
-              }}
-            />
-            <EditBeerModal
-              isOpen={!!(beerSelectedForEdit || showAddBeerModal)}
-              beer={beerSelectedForEdit}
-              onCancel={() => {
-                setBeerSelectedForEdit(null);
-                setShowAddBeerModal(false);
-              }}
-              onSubmit={() => {
-                const remainingBeers = beerSelectedForEdit
-                  ? filterOutBeer(beers, beerSelectedForEdit)
-                  : beers;
-
-                remainingBeers.unshift(
-                  new Beer(
-                    editBeerName,
-                    parseFloat(editBeerABV),
-                    editBeerDescription
-                  )
-                );
-                setBeers(remainingBeers);
-                setBeerSelectedForEdit(null);
-                setShowAddBeerModal(false);
-              }}
-              editBeerName={editBeerName}
-              editBeerDescription={editBeerDescription}
-              editBeerABV={editBeerABV}
-              setEditBeerName={setEditBeerName}
-              setEditBeerDescription={setEditBeerDescription}
-              setEditBeerABV={setEditBeerABV}
-            />
           </div>
-        </SortableContext>
-      </DndContext>
+        </div>
+        <DeleteBeerModal
+          beer={beerSelectedForDeletion}
+          onCancel={() => setBeerSelectedForDeletion(null)}
+          onSubmit={() => {
+            const remainingBeers = filterOutBeer(
+              beers,
+              beerSelectedForDeletion
+            );
+            setBeers(remainingBeers);
+            setBeerSelectedForDeletion(null);
+          }}
+        />
+        <EditBeerModal
+          isOpen={!!(beerSelectedForEdit || showAddBeerModal)}
+          beer={beerSelectedForEdit}
+          onCancel={() => {
+            setBeerSelectedForEdit(null);
+            setShowAddBeerModal(false);
+          }}
+          onSubmit={() => {
+            const remainingBeers = beerSelectedForEdit
+              ? filterOutBeer(beers, beerSelectedForEdit)
+              : beers;
+
+            remainingBeers.unshift(
+              new Beer(
+                editBeerName,
+                parseFloat(editBeerABV),
+                editBeerDescription
+              )
+            );
+            setBeers(remainingBeers);
+            setBeerSelectedForEdit(null);
+            setShowAddBeerModal(false);
+          }}
+          editBeerName={editBeerName}
+          editBeerDescription={editBeerDescription}
+          editBeerABV={editBeerABV}
+          setEditBeerName={setEditBeerName}
+          setEditBeerDescription={setEditBeerDescription}
+          setEditBeerABV={setEditBeerABV}
+        />
+      </div>
     </PageLayout>
   );
 };
