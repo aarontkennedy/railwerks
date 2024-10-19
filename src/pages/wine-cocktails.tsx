@@ -3,7 +3,7 @@ import MetaHelper from "../components/MetaHelper";
 import PageLayout from "../components/pageLayout";
 import Cocktail from "../types/cocktail";
 import { useState, useEffect } from "react";
-import { getCsvData } from "../helpers/getCsvData";
+import { getCsvData, getCsvDataWithCookieCaching } from "../helpers/getCsvData";
 import { StaticImage } from "gatsby-plugin-image";
 import "../styles/cocktailPage.scss";
 import { useScreenDetector } from "../helpers/useScreenDetector";
@@ -25,6 +25,9 @@ const na = [
 ];
 const slushies = ["Strawberry", "Pina Colada"];
 
+const cocktailsCsvUrl =
+  "https://railwerks.s3.us-east-2.amazonaws.com/cocktails.csv";
+
 const WineCocktailsPage = () => {
   const [cocktails, setCocktails] = useState<Cocktail[]>([]);
   const [mocktails, setMocktails] = useState<Cocktail[]>([]);
@@ -32,15 +35,17 @@ const WineCocktailsPage = () => {
 
   useEffect(() => {
     try {
-      getCsvData("/data/cocktails.csv", false).then((rawCocktailData) => {
-        const cocktails: Cocktail[] = [];
-        rawCocktailData.forEach((row) => {
-          if (row[0]) {
-            cocktails.push(new Cocktail(row[0], row[1]));
-          }
-        });
-        setCocktails(cocktails);
-      });
+      getCsvDataWithCookieCaching(cocktailsCsvUrl, false).then(
+        (rawCocktailData) => {
+          const cocktails: Cocktail[] = [];
+          rawCocktailData.forEach((row) => {
+            if (row[0]) {
+              cocktails.push(new Cocktail(row[0], row[1]));
+            }
+          });
+          setCocktails(cocktails);
+        }
+      );
     } catch (e) {
       // do nothing
     }
