@@ -123,12 +123,10 @@ const AdminPage = () => {
 
   const handleDragEnd = (event) => {
     const { active, over } = event;
-
     if (active.id !== over.id) {
-      console.log();
       setBeers((beers) => {
-        const oldIndex = beers.findIndex((f) => f.name === active.name);
-        const newIndex = beers.findIndex((f) => f.name === over.name);
+        const oldIndex = beers.findIndex((f) => f.name === active.id);
+        const newIndex = beers.findIndex((f) => f.name === over.id);
         return arrayMove(beers, oldIndex, newIndex);
       });
     }
