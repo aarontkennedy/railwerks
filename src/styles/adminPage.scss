@@ -47,20 +47,24 @@
     }
   }
 
-  table {
-    border-spacing: 0;
-  }
-
-  th {
-    text-align: left;
-  }
-
-  tr:nth-child(even) {
-    background-color: #111111;
-    button.icon {
+  &__editor {
+    &-header {
+    }
+    &-body {
+      padding-left: 0;
+    }
+    .row {
+      display: flex;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .row:nth-child(even) {
       background-color: #111111;
-      &:hover {
-        background-color: $secondary;
+      button.icon {
+        background-color: #111111;
+        &:hover {
+          background-color: $secondary;
+        }
       }
     }
   }
