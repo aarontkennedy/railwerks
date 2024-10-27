@@ -185,7 +185,7 @@ const AdminPage = () => {
     });
   };
 
-  useEffect(() => {
+  const loadData = (): void => {
     try {
       getCsvData(beerCsvUrl, false).then((rawBeerData) => {
         const beers: Beer[] = [];
@@ -197,14 +197,20 @@ const AdminPage = () => {
         setBeers(beers);
       });
     } catch (e) {
-      // do nothing
+      handleError(e.message);
     }
-  }, []);
+  };
+
+  useEffect(loadData, []);
+
+  const handleError = (message: string): void => {
+    alert("Error: " + message);
+  };
 
   const getCsvString = (): string => {
     // convert the beer list array to a csv string - https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
     if (!beers || beers.length <= 0) {
-      return; // todo handle error
+      throw new Error("Missing data? Attempting to remove all?");
     }
 
     // convert beers array to array of data for csv
@@ -234,7 +240,12 @@ const AdminPage = () => {
   const submitBeerList = (): void => {
     const url =
       "https://4gvavuuvssbnco7dtq2cwwagdm0mkmhg.lambda-url.us-east-2.on.aws/";
-    const csvString = getCsvString();
+    let csvString;
+    try {
+      csvString = getCsvString();
+    } catch (e) {
+      handleError("Failed to convert to csv!");
+    }
     const postData = {
       bucket: "railwerks",
       key: "test.csv",
@@ -251,10 +262,14 @@ const AdminPage = () => {
       .then((data) => {
         // Handle the response data
         console.log(data);
+        if (data === "Success") {
+          loadData();
+        } else {
+          handleError("Failed to upload to csv!");
+        }
       })
       .catch((error) => {
-        // Handle any errors
-        console.error("Error:", error);
+        handleError("Failed to upload to csv! " + error.message);
       });
   };
 
@@ -305,9 +320,7 @@ const AdminPage = () => {
                 Add new beer
               </button>
               <button onClick={downloadBeerList}>Download beer list</button>
-
-              {/* <button>Save beer list</button>
-            </div> */}
+              <button onClick={submitBeerList}>Save beer list</button>
             </div>
           </div>
           <DeleteBeerModal
