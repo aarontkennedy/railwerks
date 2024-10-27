@@ -1,25 +1,29 @@
-const EditBeerModal = ({
+import * as React from "react";
+import Drink from "../../types/drink";
+import "../../styles/adminPage.scss";
+
+const EditDrinkModal = ({
   isOpen,
   onCancel,
   onSubmit,
-  beer,
-  editBeerName,
-  editBeerDescription,
-  editBeerABV,
-  setEditBeerName,
-  setEditBeerDescription,
-  setEditBeerABV,
+  drink,
+  editDrinkName,
+  editDrinkDescription,
+  editDrinkABV,
+  setEditDrinkName,
+  setEditDrinkDescription,
+  setEditDrinkABV,
 }: {
   isOpen: boolean;
   onCancel: () => void;
   onSubmit: () => void;
-  beer: Beer | null;
-  editBeerName: string;
-  editBeerDescription: string;
-  editBeerABV: string;
-  setEditBeerName: (v: string) => void;
-  setEditBeerDescription: (v: string) => void;
-  setEditBeerABV: (v: string) => void;
+  drink:  Drink | null;
+  editDrinkName: string;
+  editDrinkDescription: string;
+  editDrinkABV: string | null;
+  setEditDrinkName: (v: string) => void;
+  setEditDrinkDescription: (v: string) => void;
+  setEditDrinkABV?: (v: string) => void;
 }) => {
   if (!isOpen) return null;
 
@@ -27,14 +31,14 @@ const EditBeerModal = ({
     <div className="admin-page__edit-modal modal">
       <div className="modal-content">
         <div className="modal-title">
-          {beer ? `Edit ${editBeerName}` : "Add beer"}
+          {drink ? `Edit ${editDrinkName}` : "Add"}
         </div>
         <div>
           <label className="input-label">Name:</label>
           <input
             className="edit-input edit-input-100-percent"
-            value={editBeerName.toUpperCase()}
-            onChange={(e) => setEditBeerName(e.target.value)}
+            value={editDrinkName.toUpperCase()}
+            onChange={(e) => setEditDrinkName(e.target.value)}
             placeholder="Name"
           />
         </div>
@@ -42,21 +46,23 @@ const EditBeerModal = ({
           <label className="input-label">Description:</label>
           <input
             className="edit-input edit-input-100-percent"
-            value={editBeerDescription}
-            onChange={(e) => setEditBeerDescription(e.target.value)}
+            value={editDrinkDescription}
+            onChange={(e) => setEditDrinkDescription(e.target.value)}
             placeholder="Description"
           />
         </div>
-        <div>
-          <label className="input-label">ABV:</label>
-          <input
-            className="edit-input"
-            value={editBeerABV}
-            onChange={(e) => setEditBeerABV(e.target.value)}
-            placeholder="ABV"
-            type="number"
-          />
-        </div>
+        {setEditDrinkABV && (
+          <div>
+            <label className="input-label">ABV:</label>
+            <input
+              className="edit-input"
+              value={editDrinkABV ?? ""}
+              onChange={(e) => setEditDrinkABV(e.target.value)}
+              placeholder="ABV"
+              type="number"
+            />
+          </div>
+        )}
         <div className="admin-page__button-container">
           <button onClick={onCancel}>Cancel</button>
           <button onClick={onSubmit}>Update</button>
@@ -65,3 +71,5 @@ const EditBeerModal = ({
     </div>
   );
 };
+
+export default EditDrinkModal;

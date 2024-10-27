@@ -1,7 +1,6 @@
 import * as React from "react";
 import MetaHelper from "../components/MetaHelper";
 import { useState, useEffect } from "react";
-import Beer from "../types/beer";
 import { getCsvDataWithCookieCaching } from "../helpers/getCsvData";
 import PageLayout from "../components/pageLayout";
 import "../styles/beerPage.scss";
@@ -11,20 +10,21 @@ import {
   mobileHeroImageStyle,
 } from "../helpers/constants";
 import { useScreenDetector } from "../helpers/useScreenDetector";
+import Drink from "../types/drink";
 
 const beerCsvUrl = "https://railwerks.s3.us-east-2.amazonaws.com/beers.csv";
 
 const BeerPage = () => {
-  const [beers, setBeers] = useState<Beer[]>([]);
+  const [beers, setBeers] = useState<Drink[]>([]);
   const { isMobile, isTablet, isDesktop } = useScreenDetector();
 
   useEffect(() => {
     try {
       getCsvDataWithCookieCaching(beerCsvUrl, false).then((rawBeerData) => {
-        const beers: Beer[] = [];
+        const beers: Drink[] = [];
         rawBeerData.forEach((row) => {
           if (row[0]) {
-            beers.push(new Beer(row[0], row[2], row[1]));
+            beers.push(new Drink(row[0], row[1], row[2]));
           }
         });
         setBeers(beers);
