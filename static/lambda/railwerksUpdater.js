@@ -26,20 +26,29 @@ export const handler = async (event) => {
 
   try {
     const requestData = JSON.parse(event.body);
+    const password = requestData.password ?? "";
+    if (password !== "rwbd2024!") {
+      throw new Error("Invalid input");
+    }
     const bucket = requestData.bucket ?? "";
     const key = requestData.key ?? "";
 
     if (bucket !== "railwerks") {
       throw new Error("Invalid input");
     }
-    if (/*key !== "beers.csv" || */ key !== "test.csv") {
+    if (
+      key !== "beers.csv" &&
+      key !== "cocktails.csv" &&
+      key !== "testbeers.csv" &&
+      key !== "testcocktails.csv"
+    ) {
       throw new Error("Invalid input");
     }
 
     switch (method) {
       case "POST":
         try {
-          const contents = requestData?.contents ?? "test,test,test";
+          const contents = requestData?.contents ?? "";
           if (!contents) {
             throw new Error("Invalid input");
           }

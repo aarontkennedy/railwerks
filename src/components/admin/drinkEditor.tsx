@@ -13,6 +13,7 @@ import {
 import DeleteDrinkModal from "../../components/admin/deleteDrinkModal";
 import SortableItem from "../../components/admin/sortableItem";
 import Drink from "../../types/drink";
+import ConfirmUploadModal from "./confirmUploadModal";
 
 const filterOutDrink = (
   drinks: Drink[],
@@ -27,18 +28,22 @@ const handleError = (message: string): void => {
   alert("Error: " + message);
 };
 
-const getCsvString = (drinks: Drink[]): string => {
+export const getCsvString = (drinks: Drink[], supportABV: boolean): string => {
   // convert the drink list array to a csv string - https://medium.com/@idorenyinudoh10/how-to-export-data-from-javascript-to-a-csv-file-955bdfc394a9
   if (!drinks || drinks.length <= 0) {
     throw new Error("Missing data? Attempting to remove all?");
   }
 
   // convert array to array of data for csv
-  const headerValues = Object.keys(drinks[0]);
+  let headerValues = Object.keys(drinks[0]);
+  if (!supportABV) {
+    headerValues = headerValues.filter((h) => h !== "alcoholPercent");
+  }
+
   const csvData = [];
   csvData.push(headerValues);
   drinks.forEach((d) => {
-    csvData.push(Object.values(d));
+    csvData.push(supportABV ? Object.values(d) : [d.name, d.description]);
   });
 
   // format data in array csv string
@@ -67,10 +72,12 @@ const DrinkEditor = ({
   const [editDrinkName, setEditDrinkName] = useState("");
   const [editDrinkDescription, setEditDrinkDescription] = useState("");
   const [editDrinkABV, setEditDrinkABV] = useState("");
+  const [showUploadConfirmation, setShowUploadConfirmation] = useState(false);
+  const supportABV = drinkLabel === "beer";
 
   const handleDragEnd = (event: any) => {
     const { active, over } = event;
-    if (active.id !== over.id) {
+    if (active && over && active.id !== over.id) {
       setDrinks((d) => {
         const oldIndex = d.findIndex((f) => f.name === active.id);
         const newIndex = d.findIndex((f) => f.name === over.id);
@@ -97,8 +104,8 @@ const DrinkEditor = ({
 
   useEffect(loadData, []);
 
-  const downloadDrinkList = (): void => {
-    const csvString = getCsvString(drinks);
+  const downloadDrinkList = (supportABV: boolean): void => {
+    const csvString = getCsvString(drinks, supportABV);
 
     // initiate download
     const blob = new Blob([csvString], { type: "text/csv;charset=utf-8," });
@@ -109,11 +116,11 @@ const DrinkEditor = ({
     link.click();
   };
 
-  const submitDrinkList = (): void => {
+  const submitDrinkList = (password: string, supportABV: boolean): void => {
     const url = lambdaUpdateUrl;
     let csvString;
     try {
-      csvString = getCsvString(drinks);
+      csvString = getCsvString(drinks, supportABV);
     } catch (e) {
       handleError("Failed to convert to csv!");
     }
@@ -121,6 +128,7 @@ const DrinkEditor = ({
       bucket: s3Bucket,
       key: s3Key,
       contents: csvString,
+      password: password,
     };
     fetch(url, {
       method: "POST",
@@ -134,6 +142,7 @@ const DrinkEditor = ({
         // Handle the response data
         console.log(data);
         if (data === "Success") {
+          setShowUploadConfirmation(false);
           loadData();
         } else {
           handleError("Failed to upload to csv!");
@@ -166,7 +175,7 @@ const DrinkEditor = ({
                     setDrinkSelectedForDeletion={setDrinkSelectedForDeletion}
                     setEditDrinkName={setEditDrinkName}
                     setEditDrinkDescription={setEditDrinkDescription}
-                    setEditDrinkABV={setEditDrinkABV}
+                    setEditDrinkABV={supportABV ? setEditDrinkABV : null}
                     setDrinkSelectedForEdit={setDrinkSelectedForEdit}
                   />
                 );
@@ -185,11 +194,19 @@ const DrinkEditor = ({
           >
             Add new {drinkLabel.toLowerCase()}
           </button>
-          <button onClick={downloadDrinkList}>
+          <button
+            onClick={() => {
+              downloadDrinkList(supportABV);
+            }}
+          >
             Download {drinkLabel.toLowerCase()} list
           </button>
-          <button onClick={submitDrinkList}>
-            Save {drinkLabel.toLowerCase()} list
+          <button
+            onClick={() => {
+              setShowUploadConfirmation(true);
+            }}
+          >
+            Upload {drinkLabel.toLowerCase()} list
           </button>
         </div>
       </div>
@@ -221,7 +238,7 @@ const DrinkEditor = ({
             new Drink(
               editDrinkName,
               editDrinkDescription,
-              parseFloat(editDrinkABV)
+              supportABV ? parseFloat(editDrinkABV) : null
             )
           );
           setDrinks(remainingDrinks);
@@ -230,11 +247,21 @@ const DrinkEditor = ({
         }}
         editDrinkName={editDrinkName}
         editDrinkDescription={editDrinkDescription}
-        editDrinkABV={editDrinkABV}
+        editDrinkABV={supportABV ? editDrinkABV : ""}
         setEditDrinkName={setEditDrinkName}
         setEditDrinkDescription={setEditDrinkDescription}
-        setEditDrinkABV={setEditDrinkABV}
+        setEditDrinkABV={supportABV ? setEditDrinkABV : null}
       />
+      {showUploadConfirmation && (
+        <ConfirmUploadModal
+          onSubmit={submitDrinkList}
+          onCancel={() => {
+            setShowUploadConfirmation(false);
+          }}
+          drinks={drinks}
+          drinkLabel={drinkLabel}
+        />
+      )}
     </>
   );
 };

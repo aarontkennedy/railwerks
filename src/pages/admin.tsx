@@ -7,12 +7,12 @@ import { StaticImage } from "gatsby-plugin-image";
 import {
   desktopHeroImageStyle,
   mobileHeroImageStyle,
+  bucket,
+  lambdaUpdateUrl,
+  beerCsvUrl,
+  cocktailsCsvUrl,
 } from "../helpers/constants";
 import DrinkEditor from "../components/admin/drinkEditor";
-
-const lambdaUpdateUrl =
-  "https://4gvavuuvssbnco7dtq2cwwagdm0mkmhg.lambda-url.us-east-2.on.aws/";
-const beerCsvUrl = "https://railwerks.s3.us-east-2.amazonaws.com/test.csv"; //"https://railwerks.s3.us-east-2.amazonaws.com/beers.csv";
 
 const AdminPage = () => {
   const { isMobile, isTablet, isDesktop } = useScreenDetector();
@@ -34,15 +34,15 @@ const AdminPage = () => {
         <div className="admin-page__content">
           <DrinkEditor
             drinkCsvUrl={beerCsvUrl}
-            s3Bucket="railwerks"
-            s3Key="test.csv"
+            s3Bucket={bucket}
+            s3Key="beers.csv"
             lambdaUpdateUrl={lambdaUpdateUrl}
             drinkLabel="beer"
           />
           <DrinkEditor
-            drinkCsvUrl={beerCsvUrl}
-            s3Bucket="railwerks"
-            s3Key="test.csv"
+            drinkCsvUrl={cocktailsCsvUrl}
+            s3Bucket={bucket}
+            s3Key="cocktails.csv"
             lambdaUpdateUrl={lambdaUpdateUrl}
             drinkLabel="cocktail"
           />

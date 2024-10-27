@@ -18,3 +18,11 @@ export const homeMenuImageWrapperStyle = {
   marginRight: "auto",
   marginLeft: "auto",
 };
+
+export const lambdaUpdateUrl =
+  "https://4gvavuuvssbnco7dtq2cwwagdm0mkmhg.lambda-url.us-east-2.on.aws/";
+export const beerCsvUrl =
+  "https://railwerks.s3.us-east-2.amazonaws.com/beers.csv";
+export const cocktailsCsvUrl =
+  "https://railwerks.s3.us-east-2.amazonaws.com/cocktails.csv";
+export const bucket = "railwerks";

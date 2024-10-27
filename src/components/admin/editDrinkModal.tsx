@@ -17,13 +17,13 @@ const EditDrinkModal = ({
   isOpen: boolean;
   onCancel: () => void;
   onSubmit: () => void;
-  drink:  Drink | null;
+  drink: Drink | null;
   editDrinkName: string;
   editDrinkDescription: string;
   editDrinkABV: string | null;
   setEditDrinkName: (v: string) => void;
   setEditDrinkDescription: (v: string) => void;
-  setEditDrinkABV?: (v: string) => void;
+  setEditDrinkABV: null | ((v: string) => void);
 }) => {
   if (!isOpen) return null;
 
@@ -65,7 +65,9 @@ const EditDrinkModal = ({
         )}
         <div className="admin-page__button-container">
           <button onClick={onCancel}>Cancel</button>
-          <button onClick={onSubmit}>Update</button>
+          <button onClick={onSubmit}>
+            {drink ? `Update ${editDrinkName}` : "Add"}
+          </button>
         </div>
       </div>
     </div>
