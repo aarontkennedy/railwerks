@@ -42,9 +42,6 @@ const DeleteBeerModal = ({
         <div className="modal-title">
           Are you sure you want to delete {beerName}?
         </div>
-        <div>{beerName}</div>
-        <div>{beer.description}</div>
-        <div>{beer.alcoholPercent}%</div>
         <div className="admin-page__button-container">
           <button onClick={onCancel}>Cancel</button>
           <button onClick={onSubmit}>Delete {beerName}</button>
@@ -82,22 +79,35 @@ const EditBeerModal = ({
   return (
     <div className="admin-page__edit-modal modal">
       <div className="modal-content">
+        <div className="modal-title">
+          {beer ? `Edit ${editBeerName}` : "Add beer"}
+        </div>
         <div>
+          <label className="input-label">Name:</label>
           <input
-            value={editBeerName}
+            className="edit-input edit-input-100-percent"
+            value={editBeerName.toUpperCase()}
             onChange={(e) => setEditBeerName(e.target.value)}
+            placeholder="Name"
           />
         </div>
         <div>
+          <label className="input-label">Description:</label>
           <input
+            className="edit-input edit-input-100-percent"
             value={editBeerDescription}
             onChange={(e) => setEditBeerDescription(e.target.value)}
+            placeholder="Description"
           />
         </div>
         <div>
+          <label className="input-label">ABV:</label>
           <input
+            className="edit-input"
             value={editBeerABV}
             onChange={(e) => setEditBeerABV(e.target.value)}
+            placeholder="ABV"
+            type="number"
           />
         </div>
         <div className="admin-page__button-container">
@@ -140,14 +150,20 @@ const AdminPage = () => {
     const style = {
       transform: CSS.Transform.toString(transform),
       transition,
+      display: "flex",
+      justifyContent: "space-between",
+      padding: "12px",
     };
 
     return (
       <li ref={setNodeRef} style={style} className="row">
-        <div>{b.name.toUpperCase()}</div>
-        <div>{b.description}</div>
-        <div>{b.alcoholPercent}</div>
         <div>
+          <div>
+            {b.name.toUpperCase()} - {b.alcoholPercent}%
+          </div>
+          <div>{b.description}</div>
+        </div>
+        <div style={{ minWidth: "fit-content" }}>
           <button
             className="icon"
             onClick={() => setBeerSelectedForDeletion(b)}
@@ -290,11 +306,11 @@ const AdminPage = () => {
         <div className="admin-page__content">
           <div className="admin-page__editor">
             <div className="admin-page__editor-header">
-              <div className="row">
+              {/* <div className="row">
                 <div>Name</div>
                 <div>Description</div>
                 <div>ABV</div>
-              </div>
+              </div> */}
             </div>
             <DndContext onDragEnd={handleDragEnd}>
               <SortableContext
