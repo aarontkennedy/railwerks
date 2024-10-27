@@ -1,12 +1,11 @@
-class Beer {
-  name: string;
+import Drink from "./drink";
+
+class Beer extends Drink {
   alcoholPercent: number;
-  description: string;
 
   constructor(name: string, alcoholPercent: number, description: string) {
-    this.name = name;
+    super(name, description);
     this.alcoholPercent = alcoholPercent;
-    this.description = description;
   }
 }
 

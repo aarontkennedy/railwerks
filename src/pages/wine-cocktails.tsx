@@ -1,7 +1,7 @@
 import * as React from "react";
 import MetaHelper from "../components/MetaHelper";
 import PageLayout from "../components/pageLayout";
-import Cocktail from "../types/cocktail";
+import Drink from "../types/drink";
 import { useState, useEffect } from "react";
 import { getCsvData, getCsvDataWithCookieCaching } from "../helpers/getCsvData";
 import { StaticImage } from "gatsby-plugin-image";
@@ -13,15 +13,15 @@ import {
 } from "../helpers/constants";
 
 const wine = [
-  new Cocktail("Sauvignon Blanc", "White Hills Wine - New Zealand"),
-  new Cocktail(
+  new Drink("Sauvignon Blanc", "White Hills Wine - New Zealand"),
+  new Drink(
     "Cabernet Sauvignon",
     "Matchbook Wine Company - Zamora, California"
   ),
 ];
 const na = [
-  new Cocktail("Root Beer", "House Made Root Beer"),
-  new Cocktail("Ginger Ale", "House Made Ginger Syrup"),
+  new Drink("Root Beer", "House Made Root Beer"),
+  new Drink("Ginger Ale", "House Made Ginger Syrup"),
 ];
 const slushies = ["Strawberry", "Pina Colada"];
 
@@ -29,18 +29,18 @@ const cocktailsCsvUrl =
   "https://railwerks.s3.us-east-2.amazonaws.com/cocktails.csv";
 
 const WineCocktailsPage = () => {
-  const [cocktails, setCocktails] = useState<Cocktail[]>([]);
-  const [mocktails, setMocktails] = useState<Cocktail[]>([]);
+  const [cocktails, setCocktails] = useState<Drink[]>([]);
+  const [mocktails, setMocktails] = useState<Drink[]>([]);
   const { isMobile, isTablet, isDesktop } = useScreenDetector();
 
   useEffect(() => {
     try {
       getCsvDataWithCookieCaching(cocktailsCsvUrl, false).then(
         (rawCocktailData) => {
-          const cocktails: Cocktail[] = [];
+          const cocktails: Drink[] = [];
           rawCocktailData.forEach((row) => {
             if (row[0]) {
-              cocktails.push(new Cocktail(row[0], row[1]));
+              cocktails.push(new Drink(row[0], row[1]));
             }
           });
           setCocktails(cocktails);
@@ -54,10 +54,10 @@ const WineCocktailsPage = () => {
   useEffect(() => {
     try {
       getCsvData("/data/mocktails.csv", false).then((rawMocktailData) => {
-        const mocktails: Cocktail[] = [];
+        const mocktails: Drink[] = [];
         rawMocktailData.forEach((row) => {
           if (row[0]) {
-            mocktails.push(new Cocktail(row[0], row[1]));
+            mocktails.push(new Drink(row[0], row[1]));
           }
         });
         setMocktails(mocktails);

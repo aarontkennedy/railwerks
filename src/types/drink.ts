@@ -1,4 +1,4 @@
-class Cocktail {
+class Drink {
   name: string;
   description: string;
 
@@ -8,4 +8,4 @@ class Cocktail {
   }
 }
 
-export default Cocktail;
+export default Drink;
