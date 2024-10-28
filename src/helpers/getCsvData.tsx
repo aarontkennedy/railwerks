@@ -83,7 +83,7 @@ const getItemWithExpiration = (key: string) => {
 export const getCsvDataWithCookieCaching = async function (
   url: string,
   includeColumnNames: boolean = true,
-  expirationTimeInHours: number = 3
+  expirationTimeInHours: number = 1
 ) {
   const cached = getItemWithExpiration(url);
   if (cached) {
