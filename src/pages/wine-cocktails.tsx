@@ -149,7 +149,7 @@ const WineCocktailsPage = () => {
             );
           })}
         </div>
-        <div className="cocktail-page__section">
+        {/*<div className="cocktail-page__section">
           <div className="cocktail-page__section-title">SLUSHIES</div>
           {slushies.map(function (s) {
             return (
@@ -160,7 +160,7 @@ const WineCocktailsPage = () => {
               </div>
             );
           })}
-        </div>
+        </div>*/}
       </div>
       <StaticImage
         alt="Drinks"
